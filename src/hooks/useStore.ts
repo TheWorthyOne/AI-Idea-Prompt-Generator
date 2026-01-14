@@ -14,8 +14,8 @@ export function useStore<T>(key: string, defaultValue: T) {
       try {
         const store = await storePromise;
         const stored = await store.get<T>(key);
-        if (stored !== null) {
-          setValue(stored);
+        if (stored !== null && stored !== undefined) {
+          setValue(stored as T);
         }
       } catch (error) {
         console.error('Failed to load from store:', error);
