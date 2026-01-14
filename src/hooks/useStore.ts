@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 // NOTE: @tauri-apps/plugin-store persists values in a JSON file on disk and is not encrypted.
 // Use this only for non-sensitive app data (e.g., UI preferences, idea history).
-const store = new Store('settings.json');
+const storePromise = Store.load('settings.json');
 
 export function useStore<T>(key: string, defaultValue: T) {
   const [value, setValue] = useState<T>(defaultValue);
@@ -12,6 +12,7 @@ export function useStore<T>(key: string, defaultValue: T) {
   useEffect(() => {
     async function loadValue() {
       try {
+        const store = await storePromise;
         const stored = await store.get<T>(key);
         if (stored !== null) {
           setValue(stored);
@@ -28,6 +29,7 @@ export function useStore<T>(key: string, defaultValue: T) {
   const updateValue = async (newValue: T) => {
     setValue(newValue);
     try {
+      const store = await storePromise;
       await store.set(key, newValue);
       await store.save();
     } catch (error) {

@@ -2,7 +2,7 @@ import { invoke } from '@tauri-apps/api/core';
 import { Store } from '@tauri-apps/plugin-store';
 import { useEffect, useState } from 'react';
 
-const legacyStore = new Store('settings.json');
+const legacyStorePromise = Store.load('settings.json');
 const LEGACY_API_KEY_STORE_KEY = 'apiKey';
 
 export function useApiKey() {
@@ -24,6 +24,7 @@ export function useApiKey() {
 
         // One-time migration: if older versions stored the API key in plaintext
         // in the plugin-store JSON file, move it into OS secure storage and remove it.
+        const legacyStore = await legacyStorePromise;
         const legacy = await legacyStore.get<string>(LEGACY_API_KEY_STORE_KEY);
         if (cancelled) return;
 

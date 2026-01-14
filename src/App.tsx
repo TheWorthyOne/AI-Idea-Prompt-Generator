@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IdeaGenerator } from './components/IdeaGenerator';
 import { IdeaHistory } from './components/IdeaHistory';
 import { Settings } from './components/Settings';

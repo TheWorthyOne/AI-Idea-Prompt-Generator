@@ -1,4 +1,3 @@
-import React from 'react';
 import { Idea } from '../types';
 import { IdeaCard } from './IdeaCard';
 import { History, Trash2 } from 'lucide-react';
