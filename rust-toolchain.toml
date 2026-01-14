@@ -1,0 +1,6 @@
+[toolchain]
+# Tauri (and transitive dependencies) may require a Cargo version that supports
+# parsing newer manifests (e.g. crates using the Rust 2024 edition).
+channel = "stable"
+components = ["rustfmt", "clippy"]
+
