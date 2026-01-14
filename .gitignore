@@ -27,6 +27,7 @@ dist-ssr
 # Tauri
 src-tauri/target
 src-tauri/WixTools
+src-tauri/gen
 
 # Build outputs
 *.exe

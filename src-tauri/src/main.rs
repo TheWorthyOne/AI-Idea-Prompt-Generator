@@ -2,7 +2,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use serde::{Deserialize, Serialize};
-use tauri::Manager;
 
 const KEYRING_SERVICE: &str = "ai-idea-prompt-generator";
 const KEYRING_ACCOUNT: &str = "anthropic_api_key";
@@ -190,7 +189,7 @@ async fn set_api_key(api_key: String) -> Result<(), String> {
 #[tauri::command]
 async fn delete_api_key() -> Result<(), String> {
     let entry = api_key_entry()?;
-    match entry.delete_password() {
+    match entry.delete_credential() {
         Ok(()) => Ok(()),
         Err(keyring::Error::NoEntry) => Ok(()),
         Err(err) => Err(err.to_string()),
