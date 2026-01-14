@@ -1,6 +1,8 @@
 import { Store } from '@tauri-apps/plugin-store';
 import { useState, useEffect } from 'react';
 
+// NOTE: @tauri-apps/plugin-store persists values in a JSON file on disk and is not encrypted.
+// Use this only for non-sensitive app data (e.g., UI preferences, idea history).
 const store = new Store('settings.json');
 
 export function useStore<T>(key: string, defaultValue: T) {

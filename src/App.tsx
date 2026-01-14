@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { IdeaGenerator } from './components/IdeaGenerator';
 import { IdeaHistory } from './components/IdeaHistory';
 import { Settings } from './components/Settings';
+import { useApiKey } from './hooks/useApiKey';
 import { useStore } from './hooks/useStore';
 import { Idea, IdeaResponse } from './types';
 import { Settings as SettingsIcon } from 'lucide-react';
 
 function App() {
-  const [apiKey, setApiKey, isLoadingApiKey] = useStore<string>('apiKey', '');
+  const [apiKey, setApiKey, isLoadingApiKey] = useApiKey();
   const [ideas, setIdeas, isLoadingIdeas] = useStore<Idea[]>('ideas', []);
   const [showSettings, setShowSettings] = useState(false);
 
