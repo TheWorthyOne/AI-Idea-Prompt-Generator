@@ -2,7 +2,10 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use serde::{Deserialize, Serialize};
+use std::sync::LazyLock;
 use tauri::Manager;
+
+static HTTP_CLIENT: LazyLock<reqwest::Client> = LazyLock::new(reqwest::Client::new);
 
 #[derive(Debug, Serialize, Deserialize)]
 struct IdeaRequest {
@@ -70,7 +73,6 @@ Make the idea innovative, practical, and market-ready. Include 5-8 key features.
     );
 
     // Make API request to Anthropic
-    let client = reqwest::Client::new();
     let api_request = AnthropicRequest {
         model: "claude-3-5-sonnet-20241022".to_string(),
         max_tokens: 2048,
@@ -80,7 +82,7 @@ Make the idea innovative, practical, and market-ready. Include 5-8 key features.
         }],
     };
 
-    let response = client
+    let response = HTTP_CLIENT
         .post("https://api.anthropic.com/v1/messages")
         .header("x-api-key", api_key)
         .header("anthropic-version", "2023-06-01")
@@ -136,7 +138,6 @@ Make the idea innovative, practical, and market-ready. Include 5-8 key features.
 
 #[tauri::command]
 async fn test_api_key(api_key: String) -> Result<bool, String> {
-    let client = reqwest::Client::new();
     let test_request = AnthropicRequest {
         model: "claude-3-5-sonnet-20241022".to_string(),
         max_tokens: 10,
@@ -146,7 +147,7 @@ async fn test_api_key(api_key: String) -> Result<bool, String> {
         }],
     };
 
-    let response = client
+    let response = HTTP_CLIENT
         .post("https://api.anthropic.com/v1/messages")
         .header("x-api-key", api_key)
         .header("anthropic-version", "2023-06-01")
