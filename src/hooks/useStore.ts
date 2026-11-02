@@ -1,7 +1,12 @@
 import { Store } from '@tauri-apps/plugin-store';
 import { useState, useEffect } from 'react';
 
-const store = new Store('settings.json');
+let storePromise: Promise<Store> | undefined;
+
+function getStore() {
+  storePromise ??= Store.load('settings.json');
+  return storePromise;
+}
 
 export function useStore<T>(key: string, defaultValue: T) {
   const [value, setValue] = useState<T>(defaultValue);
@@ -10,8 +15,9 @@ export function useStore<T>(key: string, defaultValue: T) {
   useEffect(() => {
     async function loadValue() {
       try {
+        const store = await getStore();
         const stored = await store.get<T>(key);
-        if (stored !== null) {
+        if (stored != null) {
           setValue(stored);
         }
       } catch (error) {
@@ -26,6 +32,7 @@ export function useStore<T>(key: string, defaultValue: T) {
   const updateValue = async (newValue: T) => {
     setValue(newValue);
     try {
+      const store = await getStore();
       await store.set(key, newValue);
       await store.save();
     } catch (error) {
