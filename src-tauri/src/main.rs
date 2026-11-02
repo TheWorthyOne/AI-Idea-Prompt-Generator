@@ -219,7 +219,7 @@ fn generate_local_idea(category: &str) -> Result<IdeaResponse, String> {
     let seed = SystemTime::now()
         .duration_since(UNIX_EPOCH)
         .unwrap_or_default()
-        .as_nanos() as u64;
+        .as_nanos();
     let profiles: Vec<IdeaProfile> = if category == "All Categories" {
         IDEA_PROFILES.to_vec()
     } else {
@@ -234,7 +234,7 @@ fn generate_local_idea(category: &str) -> Result<IdeaResponse, String> {
         return Err(format!("No built-in idea profile exists for {category}."));
     }
 
-    let profile = profiles[(seed as usize) % profiles.len()];
+    let profile = profiles[local_profile_index(seed, profiles.len())];
     let feature_offset = ((seed >> 8) as usize) % profile.features.len();
     let spotlight = profile.features[feature_offset].to_lowercase();
     let key_features = (0..profile.features.len())
@@ -261,6 +261,10 @@ fn generate_local_idea(category: &str) -> Result<IdeaResponse, String> {
             profile.name, profile.audience, profile.outcome, spotlight
         ),
     })
+}
+
+fn local_profile_index(timestamp_nanos: u128, profile_count: usize) -> usize {
+    ((timestamp_nanos / 100) % profile_count as u128) as usize
 }
 
 async fn generate_idea_with_anthropic(category: &str, api_key: String) -> Result<IdeaResponse, String> {
@@ -387,7 +391,8 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
-    use super::generate_local_idea;
+    use super::{generate_local_idea, local_profile_index};
+    use std::collections::HashSet;
 
     #[test]
     fn generates_a_local_idea_for_a_selected_category() {
@@ -407,6 +412,16 @@ mod tests {
 
         assert!(idea.category.is_some());
         assert_eq!(idea.key_features.len(), 5);
+    }
+
+    #[test]
+    fn timestamp_ticks_can_select_every_profile() {
+        let timestamp_nanos = 1_000_000_000_000_u128;
+        let selected_profiles = (0..15)
+            .map(|tick| local_profile_index(timestamp_nanos + tick * 100, 15))
+            .collect::<HashSet<_>>();
+
+        assert_eq!(selected_profiles.len(), 15);
     }
 
     #[test]

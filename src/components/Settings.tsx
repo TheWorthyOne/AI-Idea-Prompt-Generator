@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { invoke } from '@tauri-apps/api/core';
 import { Check, Eye, EyeOff, KeyRound, X } from 'lucide-react';
 
@@ -13,6 +13,53 @@ export function Settings({ apiKey, onApiKeyChange, onClose }: SettingsProps) {
   const [isValidating, setIsValidating] = useState(false);
   const [validationResult, setValidationResult] = useState<'valid' | 'invalid' | null>(null);
   const [showKey, setShowKey] = useState(false);
+  const dialogRef = useRef<HTMLElement>(null);
+  const apiKeyInputRef = useRef<HTMLInputElement>(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    const previouslyFocused = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    apiKeyInputRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onCloseRef.current();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const dialog = dialogRef.current;
+      if (!dialog) return;
+
+      const focusableElements = dialog.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      const first = focusableElements.item(0);
+      const last = focusableElements.item(focusableElements.length - 1);
+
+      if (!first || !last) {
+        event.preventDefault();
+        dialog.focus();
+      } else if (event.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !dialog.contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, []);
 
   const handleValidate = async () => {
     if (!localApiKey.trim()) {
@@ -48,6 +95,8 @@ export function Settings({ apiKey, onApiKeyChange, onClose }: SettingsProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="settings-title"
+        ref={dialogRef}
+        tabIndex={-1}
       >
         <div className="settings-heading">
           <div className="settings-icon"><KeyRound aria-hidden="true" /></div>
@@ -66,6 +115,7 @@ export function Settings({ apiKey, onApiKeyChange, onClose }: SettingsProps) {
           <div className="api-key-field">
             <input
               id="api-key"
+              ref={apiKeyInputRef}
               type={showKey ? 'text' : 'password'}
               value={localApiKey}
               onChange={(event) => {
