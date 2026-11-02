@@ -11,6 +11,7 @@ export interface Idea {
 }
 
 export interface IdeaResponse {
+  category?: string;
   concept: string;
   platform: string;
   target_audience: string;

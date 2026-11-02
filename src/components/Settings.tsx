@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { invoke } from '@tauri-apps/api/core';
-import { Key, Check, X, Eye, EyeOff } from 'lucide-react';
+import { Check, Eye, EyeOff, KeyRound, X } from 'lucide-react';
 
 interface SettingsProps {
   apiKey: string;
@@ -13,6 +13,53 @@ export function Settings({ apiKey, onApiKeyChange, onClose }: SettingsProps) {
   const [isValidating, setIsValidating] = useState(false);
   const [validationResult, setValidationResult] = useState<'valid' | 'invalid' | null>(null);
   const [showKey, setShowKey] = useState(false);
+  const dialogRef = useRef<HTMLElement>(null);
+  const apiKeyInputRef = useRef<HTMLInputElement>(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    const previouslyFocused = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    apiKeyInputRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onCloseRef.current();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const dialog = dialogRef.current;
+      if (!dialog) return;
+
+      const focusableElements = dialog.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      const first = focusableElements.item(0);
+      const last = focusableElements.item(focusableElements.length - 1);
+
+      if (!first || !last) {
+        event.preventDefault();
+        dialog.focus();
+      } else if (event.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !dialog.contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, []);
 
   const handleValidate = async () => {
     if (!localApiKey.trim()) {
@@ -40,97 +87,88 @@ export function Settings({ apiKey, onApiKeyChange, onClose }: SettingsProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <Key className="w-6 h-6" />
-            API Settings
-          </h2>
-          <button
-            onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            <X className="w-6 h-6" />
+    <div className="settings-backdrop" onMouseDown={(event) => {
+      if (event.target === event.currentTarget) onClose();
+    }}>
+      <section
+        className="settings-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="settings-title"
+        ref={dialogRef}
+        tabIndex={-1}
+      >
+        <div className="settings-heading">
+          <div className="settings-icon"><KeyRound aria-hidden="true" /></div>
+          <button type="button" onClick={onClose} className="close-button" aria-label="Close settings">
+            <X aria-hidden="true" />
           </button>
+          <p className="panel-kicker">Optional Claude connection</p>
+          <h2 id="settings-title">Use your own API key</h2>
+          <p className="settings-description">
+            Add an Anthropic key to generate with Claude. Leave it blank to use the built-in generator without an account or API key.
+          </p>
         </div>
 
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Anthropic API Key
-            </label>
-            <div className="relative">
-              <input
-                type={showKey ? 'text' : 'password'}
-                value={localApiKey}
-                onChange={(e) => {
-                  setLocalApiKey(e.target.value);
-                  setValidationResult(null);
-                }}
-                placeholder="sk-ant-..."
-                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              />
-              <button
-                onClick={() => setShowKey(!showKey)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-              >
-                {showKey ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-              </button>
-            </div>
-            <p className="mt-2 text-xs text-gray-500">
-              Get your API key from{' '}
-              <a
-                href="https://console.anthropic.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-600 hover:text-primary-700 underline"
-              >
-                console.anthropic.com
-              </a>
-            </p>
+        <div className="settings-fields">
+          <label htmlFor="api-key">Anthropic API key <span className="optional-label">Optional</span></label>
+          <div className="api-key-field">
+            <input
+              id="api-key"
+              ref={apiKeyInputRef}
+              type={showKey ? 'text' : 'password'}
+              value={localApiKey}
+              onChange={(event) => {
+                setLocalApiKey(event.target.value);
+                setValidationResult(null);
+              }}
+              placeholder="sk-ant-..."
+              autoComplete="off"
+            />
+            <button
+              type="button"
+              onClick={() => setShowKey(!showKey)}
+              className="visibility-button"
+              aria-label={showKey ? 'Hide API key' : 'Show API key'}
+            >
+              {showKey ? <EyeOff aria-hidden="true" /> : <Eye aria-hidden="true" />}
+            </button>
           </div>
+          <p className="settings-help">
+            Leave this blank for local generation, or find a key in the{' '}
+            <a href="https://console.anthropic.com/" target="_blank" rel="noopener noreferrer">
+              Anthropic Console
+            </a>.
+          </p>
 
           {validationResult && (
-            <div
-              className={`p-3 rounded-lg flex items-center gap-2 ${
-                validationResult === 'valid'
-                  ? 'bg-green-50 text-green-800'
-                  : 'bg-red-50 text-red-800'
-              }`}
-            >
-              {validationResult === 'valid' ? (
-                <>
-                  <Check className="w-5 h-5" />
-                  <span>API key is valid!</span>
-                </>
-              ) : (
-                <>
-                  <X className="w-5 h-5" />
-                  <span>Invalid API key. Please check and try again.</span>
-                </>
-              )}
-            </div>
+            <p className={`validation-message ${validationResult}`} role="status">
+              {validationResult === 'valid' ? <Check aria-hidden="true" /> : <X aria-hidden="true" />}
+              {validationResult === 'valid'
+                ? 'This key is ready to use.'
+                : 'The key could not be verified. Check it and try again.'}
+            </p>
           )}
 
-          <div className="flex gap-3 pt-4">
+          <div className="settings-actions">
             <button
+              type="button"
               onClick={handleValidate}
               disabled={isValidating || !localApiKey.trim()}
-              className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="secondary-button"
             >
-              {isValidating ? 'Validating...' : 'Test Key'}
+              {isValidating ? 'Checking key...' : 'Test key'}
             </button>
             <button
+              type="button"
               onClick={handleSave}
-              disabled={!localApiKey.trim()}
-              className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="primary-button"
             >
-              Save
+              Save settings
             </button>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
