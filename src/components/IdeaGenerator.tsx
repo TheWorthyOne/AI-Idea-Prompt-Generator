@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { invoke } from '@tauri-apps/api/core';
 import { AlertCircle, ArrowUpRight, Sparkles } from 'lucide-react';
+import { isTauriRuntime } from '../hooks/useStore';
 import { CATEGORIES, Category, IdeaResponse } from '../types';
+import { generateLocalIdeaInBrowser } from '../utils/localIdeas';
 
 interface IdeaGeneratorProps {
   apiKey: string;
@@ -19,10 +21,12 @@ export function IdeaGenerator({ apiKey, onIdeaGenerated, onOpenSettings }: IdeaG
     setError(null);
 
     try {
-      const idea = await invoke<IdeaResponse>('generate_idea', {
-        category: selectedCategory,
-        apiKey: apiKey || null,
-      });
+      const idea = isTauriRuntime()
+        ? await invoke<IdeaResponse>('generate_idea', {
+            category: selectedCategory,
+            apiKey: apiKey || null,
+          })
+        : generateLocalIdeaInBrowser(selectedCategory);
       onIdeaGenerated(idea, idea.category ?? selectedCategory);
     } catch (err) {
       console.error('Generation error:', err);
@@ -86,13 +90,13 @@ export function IdeaGenerator({ apiKey, onIdeaGenerated, onOpenSettings }: IdeaG
             </>
           ) : (
             <>
-              <span>{apiKey ? 'Generate with Claude' : 'Generate a local idea'}</span>
+              <span>{apiKey && isTauriRuntime() ? 'Generate with Claude' : 'Generate a local idea'}</span>
               <ArrowUpRight aria-hidden="true" />
             </>
           )}
         </button>
         <p className="privacy-note">
-          {apiKey
+          {apiKey && isTauriRuntime()
             ? 'Claude uses your optional key. Your idea notebook stays on this device.'
             : 'No API key needed. Ideas are generated on this device.'}
         </p>

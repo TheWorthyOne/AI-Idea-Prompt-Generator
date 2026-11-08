@@ -33,9 +33,9 @@ A powerful cross-platform desktop application that generates detailed startup an
 - Platform-specific secure storage:
   - **Windows**: Windows Credential Manager
   - **macOS**: macOS Keychain
-  - **Linux**: Encrypted local storage
+  - **Linux**: Secret Service (e.g., GNOME Keyring / KWallet)
 - Built-in API key validation
-- Never stores keys in plain text
+- API keys are stored via the OS credential store (not in the app's JSON settings file)
 
 ### 🎨 Modern User Interface
 - Clean, intuitive design
@@ -261,7 +261,7 @@ Monitor your usage at [Anthropic Console](https://console.anthropic.com/).
 
 ## Security
 
-- ✅ API keys stored securely using platform-specific secure storage
+- ✅ API keys stored securely using platform-specific credential storage (Keychain / Credential Manager / Secret Service)
 - ✅ No telemetry or data collection
 - ✅ All data stored locally on your machine
 - ✅ HTTPS-only API communication

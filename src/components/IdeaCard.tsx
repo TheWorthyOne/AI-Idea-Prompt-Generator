@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 import { Check, Copy, Lightbulb, Target, Users } from 'lucide-react';
+import { isTauriRuntime } from '../hooks/useStore';
 import { Idea } from '../types';
 import { formatIdeaForClipboard } from '../utils/formatIdea';
 
@@ -12,8 +13,13 @@ export function IdeaCard({ idea }: IdeaCardProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
+    const formatted = formatIdeaForClipboard(idea);
     try {
-      await writeText(formatIdeaForClipboard(idea));
+      if (isTauriRuntime()) {
+        await writeText(formatted);
+      } else {
+        await navigator.clipboard.writeText(formatted);
+      }
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (error) {

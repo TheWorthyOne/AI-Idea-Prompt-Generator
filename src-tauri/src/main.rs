@@ -7,6 +7,9 @@ use std::time::{SystemTime, UNIX_EPOCH};
 
 static HTTP_CLIENT: LazyLock<reqwest::Client> = LazyLock::new(reqwest::Client::new);
 
+const KEYRING_SERVICE: &str = "ai-idea-prompt-generator";
+const KEYRING_ACCOUNT: &str = "anthropic_api_key";
+
 #[derive(Debug, Serialize, Deserialize)]
 struct IdeaResponse {
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -380,11 +383,52 @@ async fn test_api_key(api_key: String) -> Result<bool, String> {
     Ok(response.status().is_success())
 }
 
+fn api_key_entry() -> Result<keyring::Entry, String> {
+    keyring::Entry::new(KEYRING_SERVICE, KEYRING_ACCOUNT).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+async fn get_api_key() -> Result<Option<String>, String> {
+    let entry = api_key_entry()?;
+    match entry.get_password() {
+        Ok(value) => Ok(Some(value)),
+        Err(keyring::Error::NoEntry) => Ok(None),
+        Err(err) => Err(err.to_string()),
+    }
+}
+
+#[tauri::command]
+async fn set_api_key(api_key: String) -> Result<(), String> {
+    let api_key = api_key.trim().to_string();
+    if api_key.is_empty() {
+        return delete_api_key().await;
+    }
+
+    let entry = api_key_entry()?;
+    entry.set_password(&api_key).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+async fn delete_api_key() -> Result<(), String> {
+    let entry = api_key_entry()?;
+    match entry.delete_credential() {
+        Ok(()) => Ok(()),
+        Err(keyring::Error::NoEntry) => Ok(()),
+        Err(err) => Err(err.to_string()),
+    }
+}
+
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_store::Builder::default().build())
         .plugin(tauri_plugin_clipboard_manager::init())
-        .invoke_handler(tauri::generate_handler![generate_idea, test_api_key])
+        .invoke_handler(tauri::generate_handler![
+            generate_idea,
+            test_api_key,
+            get_api_key,
+            set_api_key,
+            delete_api_key
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
