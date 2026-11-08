@@ -1,0 +1,1816 @@
+[
+  {
+    "slug": "fintech-rill",
+    "category": "Fintech",
+    "name": "Rill",
+    "scope": "Full Product",
+    "platform": "Mobile",
+    "audience": "independent workers and freelancers with uneven monthly income",
+    "challenge": "plan around unpredictable client payouts and scattered recurring bills",
+    "outcome": "a calm, accurate daily safe-to-spend number after tax and bill reserves",
+    "monetization": "Free personal cash-flow view with a $7/month tier for automated quarterly tax buckets and shared household budgets.",
+    "features": [
+      "Safe-to-spend daily balance calculator",
+      "Upcoming bill and irregular expense timeline",
+      "Automatic percentage tax set-aside rules",
+      "Low-runway early warning forecasts",
+      "Invoice-expected vs. cash-in-hand split view",
+      "Plain-language monthly cash-flow recap"
+    ],
+    "suggested_stack": "React Native (Expo) + TypeScript + SQLite (local-first) + optional Plaid link"
+  },
+  {
+    "slug": "fintech-subledger",
+    "category": "Fintech",
+    "name": "SeatAudit",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "finance leads and operations managers at 15-to-150 person startups",
+    "challenge": "spot unused SaaS seats, surprise annual auto-renewals, and duplicate tool spend before cards are charged",
+    "outcome": "thousands saved per quarter without manually chasing department heads in spreadsheets",
+    "monetization": "$49/month flat for startups up to 50 employees, $129/month for larger teams.",
+    "features": [
+      "CSV and card-feed recurring vendor detector",
+      "30/60-day renewal countdown calendar with Slack alerts",
+      "Offboarded employee orphaned-seat checklist",
+      "Duplicate tool overlap detector across teams",
+      "One-click vendor cancellation email templates",
+      "Quarterly SaaS spend trend report"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + PostgreSQL (Supabase) + Resend email alerts"
+  },
+  {
+    "slug": "fintech-splitcraft",
+    "category": "Fintech",
+    "name": "FairShare Studio",
+    "scope": "Weekend MVP",
+    "platform": "Web and Mobile",
+    "audience": "co-living households, couples, and friend groups splitting complex recurring costs",
+    "challenge": "split rent by room size, utilities by days home, and shared groceries without awkward math disputes",
+    "outcome": "transparent, agreed-upon split formulas that settle cleanly every month",
+    "monetization": "Free calculator and ledger; $4/month per household for recurring monthly auto-ledgers and receipt OCR.",
+    "features": [
+      "Room-dimension and amenity weighted rent splitter",
+      "Prorated utility splits for travel or move-in dates",
+      "Shared household ledger with minimal-transfer settlement",
+      "Receipt photo line-item claim links",
+      "Exportable monthly summary for Venmo or Zelle",
+      "Transparent split-rule agreement history"
+    ],
+    "suggested_stack": "Next.js or Vite + React + TypeScript + IndexedDB + shareable URL state"
+  },
+  {
+    "slug": "fintech-scopevault",
+    "category": "Fintech",
+    "name": "MilestoneHold",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "freelance designers, developers, and boutique agencies billing project milestones",
+    "challenge": "prevent scope creep and late invoice payments when clients request 'one quick tweak' before paying",
+    "outcome": "structured milestone sign-offs tied directly to payment release links",
+    "monetization": "Free for up to 2 active projects; $19/month unlimited with custom branding and Stripe Connect.",
+    "features": [
+      "Visual project milestone tracker for clients",
+      "Watermarked deliverable preview until invoice payment",
+      "Out-of-scope change-order quote builder",
+      "Automated polite overdue payment nudges",
+      "Signed deliverable approval receipt log",
+      "Stripe payment link integration"
+    ],
+    "suggested_stack": "React + TypeScript + Node/Hono API + PostgreSQL + Stripe Checkout"
+  },
+  {
+    "slug": "fintech-trueprice",
+    "category": "Fintech",
+    "name": "CheckoutTruth",
+    "scope": "Tool / Extension",
+    "platform": "Browser Extension",
+    "audience": "budget-conscious online shoppers tired of hidden service fees and subscription traps",
+    "challenge": "convert prices into hours of work, spot recurring billing fine print, and compare unit costs instantly",
+    "outcome": "fewer impulse buys and zero surprise trial-to-paid charges",
+    "monetization": "Free extension with an optional $19/year Pro pack for virtual card trial reminders and price-drop watchlists.",
+    "features": [
+      "Price-to-work-hours inline badge based on hourly net pay",
+      "Free-trial auto-renewal dark-pattern highlighter",
+      "One-click 7-day cancel-before-charge reminder",
+      "Normalized unit-price comparison on product pages",
+      "72-hour 'cool-off wishlist' save button",
+      "Monthly impulse-saved counter"
+    ],
+    "suggested_stack": "TypeScript + Vite + Manifest V3 WebExtension + chrome.storage.local"
+  },
+  {
+    "slug": "fintech-grantledger",
+    "category": "Fintech",
+    "name": "GrantBuckets",
+    "scope": "Solo SaaS",
+    "platform": "Desktop",
+    "audience": "small nonprofits, academic labs, and community treasurers managing restricted funds",
+    "challenge": "track which expenses belong to which restricted grant without complex enterprise accounting software",
+    "outcome": "audit-ready grant burn-rate reports in minutes instead of weekend spreadsheet marathons",
+    "monetization": "$29/month per organization or $199 one-time desktop license for small community groups.",
+    "features": [
+      "Restricted vs. unrestricted fund envelope tracking",
+      "Grant expiration and remaining burn-rate dashboard",
+      "Receipt attachment linked to specific grant line items",
+      "Funder-ready PDF and CSV compliance export",
+      "Board meeting one-page financial snapshot",
+      "Offline-first local encrypted database"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust + SQLite + React + TypeScript"
+  },
+
+  {
+    "slug": "health-carepath",
+    "category": "Healthcare",
+    "name": "Carepath",
+    "scope": "Full Product",
+    "platform": "Mobile and Web",
+    "audience": "adult siblings and spouses coordinating ongoing care for an aging or chronically ill family member",
+    "challenge": "keep doctor instructions, medication changes, and caregiving shifts synced across multiple relatives",
+    "outcome": "one dependable handoff log so nobody double-doses meds or misses specialist follow-ups",
+    "monetization": "Free 2-person care circle; $9/month family plan for unlimited members, document vault, and printable ER packets.",
+    "features": [
+      "Shared appointment log with post-visit summary prompts",
+      "Medication schedule with dose-change changelog",
+      "One-tap printable emergency room summary sheet",
+      "Family task claim board (rides, refills, insurance calls)",
+      "Symptom and vitals trend timeline for doctor visits",
+      "Role-based read-only link for visiting nurses"
+    ],
+    "suggested_stack": "React + TypeScript + Supabase Auth/Database + PWA mobile install"
+  },
+  {
+    "slug": "health-billdecoder",
+    "category": "Healthcare",
+    "name": "ClaimClear",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "patients and parents hit with confusing hospital bills and insurance Explanation of Benefits (EOBs)",
+    "challenge": "spot duplicate CPT billing codes, upcoding, and out-of-network errors before overpaying",
+    "outcome": "plain-English bill breakdowns and ready-to-send itemized bill dispute letters",
+    "monetization": "Free CPT code lookup; $15 per detailed bill audit pack with dispute templates and fair-price benchmarks.",
+    "features": [
+      "Plain-English CPT and HCPCS medical code translator",
+      "EOB vs. hospital invoice mismatch checklist",
+      "Medicare and fair-cash benchmark price comparison",
+      "Auto-generated itemized bill request and appeal letters",
+      "Insurance phone-call script and reference number log",
+      "Payment-plan and charity-care eligibility screener"
+    ],
+    "suggested_stack": "React + TypeScript + CMS Public Fee Schedule SQLite dataset"
+  },
+  {
+    "slug": "health-flarelog",
+    "category": "Healthcare",
+    "name": "TriggerTrace",
+    "scope": "Weekend MVP",
+    "platform": "Mobile",
+    "audience": "people managing migraines, IBS, eczema, or autoimmune flare-ups",
+    "challenge": "log symptoms, sleep, weather, and meals in under 10 seconds without overwhelming tracking fatigue",
+    "outcome": "clean 30-day correlation summaries doctors actually have time to read in a 15-minute appointment",
+    "monetization": "Free offline tracker; $24/year Pro tier for weather/pressure auto-enrichment and 1-page clinician PDF exports.",
+    "features": [
+      "3-tap 10-second daily symptom and trigger check-in",
+      "Lag-window pattern finder (24h and 48h prior triggers)",
+      "Barometric pressure and sleep quality correlation chart",
+      "Clinician-friendly 1-page PDF visit brief",
+      "100% local private health storage with encrypted backup",
+      "Customizable trigger tags without calorie-counting clutter"
+    ],
+    "suggested_stack": "React + TypeScript + Capacitor or PWA + IndexedDB + PDF generation"
+  },
+  {
+    "slug": "health-rehabstreak",
+    "category": "Healthcare",
+    "name": "PT Companion",
+    "scope": "Solo SaaS",
+    "platform": "Web and Mobile",
+    "audience": "physical therapy patients recovering from sports injuries or surgery at home",
+    "challenge": "stick to boring prescribed home exercise routines printed on photocopied handouts",
+    "outcome": "guided tempo timers, pain-scale check-ins, and higher recovery adherence between clinic visits",
+    "monetization": "Free for individual patients; $39/month per independent PT clinic for branded digital home programs.",
+    "features": [
+      "Rep, hold-timer, and rest-interval audio pacer",
+      "Post-set pain vs. effort slider (green/yellow/red flags)",
+      "Photocopied sheet-to-routine quick builder",
+      "Range-of-motion milestone progress log",
+      "Clinic-ready adherence summary before next session",
+      "Gentle streak protection with rest-day scheduling"
+    ],
+    "suggested_stack": "React + TypeScript + Web Speech/Audio API + SQLite/Supabase"
+  },
+  {
+    "slug": "health-deskreset",
+    "category": "Healthcare",
+    "name": "PosturePulse",
+    "scope": "Tool / Extension",
+    "platform": "Desktop",
+    "audience": "developers, writers, and remote workers spending 8+ hours at multi-monitor desks",
+    "challenge": "prevent eye strain, wrist tension, and neck stiffness without annoying popups during deep meetings",
+    "outcome": "meeting-aware micro-breaks for 20-20-20 eye rests and 60-second mobility resets",
+    "monetization": "Free core timer; $14 one-time desktop purchase for calendar/mic detection and guided desk routines.",
+    "features": [
+      "Camera/microphone-in-use detection to pause during calls",
+      "20-20-20 subtle screen-edge eye-rest cue",
+      "60-second wrist, neck, and thoracic desk stretch cards",
+      "Keyboard/mouse intensity burst monitor",
+      "End-of-day ergonomic strain reflection log",
+      "Lightweight native tray app with zero cloud telemetry"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust + React + TypeScript"
+  },
+  {
+    "slug": "health-previsit",
+    "category": "Healthcare",
+    "name": "VisitPrep",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "patients preparing for high-stakes specialist appointments with limited consultation time",
+    "challenge": "remember every symptom timeline, medication dose, and key question once sitting in the exam room",
+    "outcome": "a structured 1-page agenda card you can hand your doctor or read off your phone",
+    "monetization": "Free web tool with optional $5 specialty question packs and multi-visit history.",
+    "features": [
+      "Guided OLDCARTS symptom timeline builder",
+      "Top-3 priority questions ranker so time doesn't run out",
+      "Current medications and supplements quick table",
+      "Specialty-specific question bank (cardiology, GI, ortho, derm)",
+      "One-page clean print and phone-lockscreen view",
+      "Zero-account local browser privacy"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + print-optimized CSS"
+  },
+
+  {
+    "slug": "ecom-secondshelf",
+    "category": "E-commerce",
+    "name": "Second Shelf",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "independent Shopify and WooCommerce boutiques ordering small-batch inventory",
+    "challenge": "decide which SKUs to reorder and in what sizes before cash gets trapped in dead stock",
+    "outcome": "confident purchase orders driven by real sell-through velocity, supplier lead times, and waitlist demand",
+    "monetization": "$29/month up to 250 SKUs; $79/month for multi-channel shops.",
+    "features": [
+      "SKU sell-through velocity vs. supplier lead-time alerts",
+      "Size-curve ratio calculator to avoid leftover XS/XXL stock",
+      "Back-in-stock waitlist count weighted into reorder math",
+      "Cash-committed purchase order simulator",
+      "Dead-stock bundle and markdown candidate finder",
+      "One-click PDF purchase order export for suppliers"
+    ],
+    "suggested_stack": "React + TypeScript + Node/Hono + PostgreSQL + CSV/Shopify API import"
+  },
+  {
+    "slug": "ecom-fitproof",
+    "category": "E-commerce",
+    "name": "MeasureMatch",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "independent apparel and vintage clothing sellers plagued by high sizing return rates",
+    "challenge": "help shoppers compare flat-lay garment measurements against a favorite item they already own",
+    "outcome": "fewer 'didn't fit' returns and higher buyer confidence on non-standard sizing",
+    "monetization": "Free up to 25 listings; $19/month embeddable widget for vintage and indie apparel stores.",
+    "features": [
+      "Visual flat-lay garment diagram (pit-to-pit, length, rise)",
+      "Compare-to-your-favorite-shirt interactive overlay",
+      "Vintage tag-size vs. modern fit translation badge",
+      "Embeddable 1-script size card for Shopify, Etsy, or Depop",
+      "Fabric stretch and shrinkage tolerance notes",
+      "Return-reason analytics by garment cut"
+    ],
+    "suggested_stack": "TypeScript + Preact/React lightweight embed + SVG measurement canvas"
+  },
+  {
+    "slug": "ecom-unboxqr",
+    "category": "E-commerce",
+    "name": "InsertLoop",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "DTC physical product brands selling on Amazon, Etsy, and their own storefront",
+    "challenge": "turn anonymous marketplace buyers into repeat customers with helpful post-purchase care guides",
+    "outcome": "branded mobile care guides, warranty registration, and reorder links triggered from a box insert QR code",
+    "monetization": "$15/month for 5 product flows; $39/month unlimited products with print-ready insert cards.",
+    "features": [
+      "Print-ready 4x6 postcard insert designer with dynamic QR",
+      "30-second mobile setup video and care-guide micro-page",
+      "One-tap warranty registration and batch serial capture",
+      "Issue triage flow that routes unhappy buyers to support first",
+      "Consumable refill and accessory reorder button",
+      "Scan-to-registration conversion analytics"
+    ],
+    "suggested_stack": "React + TypeScript + QR SVG generator + Cloudflare Workers / Supabase"
+  },
+  {
+    "slug": "ecom-bundlemath",
+    "category": "E-commerce",
+    "name": "MarginGuard",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "makers, Etsy sellers, and CPG founders pricing products across wholesale, marketplace, and DTC",
+    "challenge": "calculate true net profit after packaging, shipping zones, ad CAC, payment fees, and promo codes",
+    "outcome": "instant clarity on whether a 20% sale or wholesale order actually makes or loses money",
+    "monetization": "Free single-SKU calculator; $12/month to save full catalog BOMs, wholesale tiers, and promo scenarios.",
+    "features": [
+      "Bill-of-materials (ingredients, packaging, labor) cost builder",
+      "Platform fee presets (Shopify, Etsy, Amazon FBA, Faire)",
+      "Discount + free-shipping threshold break-even simulator",
+      "Bundle AOV vs. dimensional shipping weight calculator",
+      "Wholesale 50%-margin readiness check",
+      "Side-by-side channel profitability matrix"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + local storage / CSV export"
+  },
+  {
+    "slug": "ecom-launchdrop",
+    "category": "E-commerce",
+    "name": "BatchDrop",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "ceramicists, custom keyboard makers, micro-bakeries, and limited-run artisans",
+    "challenge": "run numbered pre-order or limited-batch drops without paying for bloated full-time storefront themes",
+    "outcome": "clean drop pages with live slot counters, production status updates, and zero overselling",
+    "monetization": "Free first drop; 1.5% platform fee or $19/month flat with Stripe Checkout.",
+    "features": [
+      "Hard-capped batch slot counter (e.g., 40/40 claimed)",
+      "Waitlist lottery or first-come drop modes",
+      "Post-drop production stage tracker (kiln, curing, packing, shipped)",
+      "Buyer status page that eliminates 'when does it ship?' emails",
+      "SMS/email next-drop subscriber capture",
+      "Direct Stripe payment collection"
+    ],
+    "suggested_stack": "Next.js + TypeScript + PostgreSQL row-level atomic counters + Stripe"
+  },
+  {
+    "slug": "ecom-returnrescue",
+    "category": "E-commerce",
+    "name": "SwapFirst",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "small specialty gear, footwear, and gift brands losing margin on cash refunds",
+    "challenge": "turn straightforward size or color returns into instant exchanges or bonus store credit",
+    "outcome": "30–40% of refund requests retained as exchanges with zero manual back-and-forth",
+    "monetization": "$25/month up to 50 returns/month, scaling with volume.",
+    "features": [
+      "Self-serve order lookup portal",
+      "One-click size/color swap with live stock check",
+      "Bonus 10% store-credit incentive option over cash refund",
+      "Structured return-reason defect photo capture",
+      "Keep-the-item green resolution rule for low-cost items",
+      "SKU-level return reason leaderboard"
+    ],
+    "suggested_stack": "React + TypeScript + Node/Express + Shopify GraphQL API"
+  },
+
+  {
+    "slug": "edu-recallroom",
+    "category": "Education",
+    "name": "Recall Room",
+    "scope": "Full Product",
+    "platform": "Web and Mobile",
+    "audience": "medical, law, and STEM students preparing for cumulative board and licensing exams",
+    "challenge": "turn messy lecture slides and notes into active-recall practice without spending hours formatting flashcards",
+    "outcome": "short daily retrieval sessions focused strictly on weak concepts before exam week",
+    "monetization": "Free core spaced-repetition deck; $8/month student plan for PDF-to-cloze extraction and exam readiness heatmaps.",
+    "features": [
+      "Markdown and lecture outline to cloze-card converter",
+      "FSRS-based spaced repetition review scheduler",
+      "Exam-date backward daily workload planner",
+      "Weak-topic syllabus mastery heatmap",
+      "Explain-it-in-your-own-words Feynman drill mode",
+      "Keyboard-first rapid review shortcuts"
+    ],
+    "suggested_stack": "React + TypeScript + ts-fsrs + SQLite/IndexedDB"
+  },
+  {
+    "slug": "edu-rubricfast",
+    "category": "Education",
+    "name": "RubricFlow",
+    "scope": "Tool / Extension",
+    "platform": "Desktop and Web",
+    "audience": "high school teachers, TAs, and university instructors grading dozens of essays or lab reports",
+    "challenge": "give specific, constructive feedback across 90 submissions without copy-pasting from a messy doc",
+    "outcome": "consistent rubric scoring and personalized feedback in half the grading time",
+    "monetization": "Free for 1 active rubric; $6/month educator plan for unlimited comment banks, grade distribution stats, and LMS export.",
+    "features": [
+      "Keyboard-hotkey clickable rubric criteria grid",
+      "Reusable tagged comment snippets with student-name variables",
+      "Live score distribution check to spot grading drift",
+      "Anonymous blind-grading student switcher",
+      "One-click formatted feedback copy for Canvas, Blackboard, or Google Classroom",
+      "Class-wide common mistake summary generator for next lecture"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + local storage + CSV LMS export"
+  },
+  {
+    "slug": "edu-oraldrill",
+    "category": "Education",
+    "name": "VivaPrep",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "PhD candidates, medical students, and language learners preparing for oral defenses, OSCEs, or interviews",
+    "challenge": "practice answering tough follow-up questions out loud under realistic time pressure",
+    "outcome": "sharper verbal clarity, fewer filler words, and calm pacing on exam day",
+    "monetization": "Free browser practice timer and question decks; $12/month for custom syllabus question generation and transcript coaching.",
+    "features": [
+      "Timed verbal prompt simulator with follow-up curveballs",
+      "Filler-word and speaking-pace self-review playback",
+      "Key-point coverage checklist after each answer",
+      "OSCE clinical vignette, thesis defense, and oral exam presets",
+      "Confidence rating per topic to resurface shaky prompts",
+      "Local browser audio recording with instant delete"
+    ],
+    "suggested_stack": "React + TypeScript + Web MediaRecorder & Web Speech API"
+  },
+  {
+    "slug": "edu-musicpractice",
+    "category": "Education",
+    "name": "MeasureByMeasure",
+    "scope": "Solo SaaS",
+    "platform": "Mobile and Web",
+    "audience": "independent piano, guitar, and violin teachers and their weekly private students",
+    "challenge": "bridge the 6-day gap between music lessons where students forget tempo targets and practice tricky bars wrong",
+    "outcome": "clear weekly assignment checklists with built-in tempo ladders and teacher audio demos",
+    "monetization": "Free for students; $19/month for music teachers with up to 30 active students.",
+    "features": [
+      "Lesson assignment card with specific bar numbers and target BPM",
+      "Step-up metronome ladder (e.g., 3 clean reps at 72 -> 76 -> 80 BPM)",
+      "30-second teacher reference clip attached to each exercise",
+      "Student 'stuck on this bar' clip upload before next lesson",
+      "Parent-friendly weekly practice summary",
+      "Repertoire history log across recitals"
+    ],
+    "suggested_stack": "React + TypeScript + Web Audio API metronome + Supabase Storage"
+  },
+  {
+    "slug": "edu-parentmath",
+    "category": "Education",
+    "name": "HomeworkBridge",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "parents trying to help K-8 kids with unfamiliar modern math methods at the kitchen table",
+    "challenge": "understand number lines, box multiplication, and tape diagrams without confusing their child with a different method",
+    "outcome": "60-second visual parent refreshers plus extra practice problems using the exact classroom method",
+    "monetization": "Free core visual explainers; $5/month family pack for printable custom practice sheets.",
+    "features": [
+      "Visual method translator (Old Way vs. Classroom Way side-by-side)",
+      "Grade K–8 topic lookup by worksheet keyword",
+      "Hint-ladder prompts parents can ask instead of giving the answer",
+      "Unlimited fresh practice problems with step-by-step visual keys",
+      "Clean printable 5-problem kitchen-table check sheet",
+      "Zero ads or gamified distractions"
+    ],
+    "suggested_stack": "React + TypeScript + SVG interactive math visuals + Vite"
+  },
+  {
+    "slug": "edu-readinglevel",
+    "category": "Education",
+    "name": "ContextReader",
+    "scope": "Tool / Extension",
+    "platform": "Browser Extension",
+    "audience": "intermediate language learners reading real foreign-language news articles and blogs",
+    "challenge": "read authentic articles without breaking flow every sentence to switch tabs to a dictionary",
+    "outcome": "effortless inline comprehension and automatic vocabulary capture from content you actually enjoy",
+    "monetization": "Free dictionary hover; $6/month for personal known-word tracking and Anki/CSV export.",
+    "features": [
+      "Color-coded known vs. learning vs. new words on any webpage",
+      "One-click sentence-context translation tooltip",
+      "Article comprehension % badge before you start reading",
+      "Click-to-mark-known vocabulary counter",
+      "One-click Anki TSV export with full source sentence context",
+      "Works offline with imported frequency dictionaries"
+    ],
+    "suggested_stack": "TypeScript + Manifest V3 Extension + IndexedDB word bank"
+  },
+
+  {
+    "slug": "saas-tandemnotes",
+    "category": "SaaS",
+    "name": "Tandem Notes",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "boutique consultancies, bookkeepers, and client-service teams running recurring check-ins",
+    "challenge": "keep decisions, approvals, and action owners visible to both internal staff and external clients",
+    "outcome": "a shared, magic-link decision log where nothing slips through post-meeting Slack threads",
+    "monetization": "Free for 3 client workspaces; $29/month for unlimited client portals and custom domain.",
+    "features": [
+      "Shared client-facing decision and action-item timeline",
+      "No-login client magic link for reviewing and approving items",
+      "Meeting agenda builder pre-populated with open action items",
+      "Owner + due-date nudges before the next recurring call",
+      "Searchable archive of 'when did the client approve X?'",
+      "One-click post-call summary email dispatch"
+    ],
+    "suggested_stack": "React + TypeScript + Hono/Node + PostgreSQL + Resend"
+  },
+  {
+    "slug": "saas-changelogger",
+    "category": "SaaS",
+    "name": "ShipNote",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "indie SaaS founders and small product teams who ship constantly but forget to write changelogs",
+    "challenge": "turn merged GitHub PRs and closed issues into clean, user-friendly release notes without developer jargon",
+    "outcome": "a polished public changelog widget and monthly customer update drafted in 2 minutes",
+    "monetization": "Free public page; $15/month for embeddable in-app 'What's New' badge and email subscriber broadcasts.",
+    "features": [
+      "GitHub commit/PR list to plain-English release note editor",
+      "New / Improved / Fixed categorized tags",
+      "Lightweight 4KB in-app 'What's New' popover widget",
+      "Hosted public changelog page with RSS feed",
+      "Customer feature-request 'Shipped!' auto-notification",
+      "Markdown and newsletter HTML one-click export"
+    ],
+    "suggested_stack": "React + TypeScript + GitHub REST API + SQLite/Turso"
+  },
+  {
+    "slug": "saas-onboarddoc",
+    "category": "SaaS",
+    "name": "ClientIntake",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "CPAs, mortgage brokers, immigration paralegals, and web agencies collecting messy client files",
+    "challenge": "stop chasing clients across 14 email threads for missing PDFs, brand assets, and tax forms",
+    "outcome": "one progress-tracked checklist link that validates file types and politely reminds clients automatically",
+    "monetization": "$29/month for solo practitioners; $69/month for small firms.",
+    "features": [
+      "Reusable document-request checklist templates",
+      "Passwordless client upload portal with % completion bar",
+      "Reject-with-reason button for blurry or wrong-year documents",
+      "Automated polite 3-day follow-up reminders",
+      "Auto-renamed ZIP download (`ClientName_2026_W2.pdf`)",
+      "Encrypted expiring storage links"
+    ],
+    "suggested_stack": "React + TypeScript + S3/R2 presigned uploads + PostgreSQL"
+  },
+  {
+    "slug": "saas-statuspulse",
+    "category": "SaaS",
+    "name": "CronBeacon",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "solo developers and DevOps engineers running nightly backups, scrapers, and billing cron jobs",
+    "challenge": "know immediately when a silent background job stops running—not 3 weeks later when backups are empty",
+    "outcome": "dead-man's-switch heartbeat URLs that alert you the moment a scheduled job misses its window",
+    "monetization": "Free up to 10 heartbeats; $9/month for 100 monitors, Slack/Discord webhooks, and payload logs.",
+    "features": [
+      "Unique ping URL added to the end of any cron script (`curl ...`)",
+      "Configurable grace period before triggering missed-run alerts",
+      "Start + finish duration timing and exit-code tracking",
+      "Email, Discord, Slack, and webhook alert channels",
+      "Last 30 runs latency and failure sparkline",
+      "Public or private status badge SVG"
+    ],
+    "suggested_stack": "TypeScript + Cloudflare Workers / Bun + SQLite + React dashboard"
+  },
+  {
+    "slug": "saas-testimonialloop",
+    "category": "SaaS",
+    "name": "ProofCollector",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "freelancers, course creators, and B2B micro-SaaS founders who struggle to get specific testimonials",
+    "challenge": "help happy customers write concrete 'before/after' quotes without staring at a blank text box",
+    "outcome": "high-converting structured testimonials and embeddable wall-of-love cards in 60 seconds",
+    "monetization": "Free up to 10 approved quotes; $14/month unlimited with custom embeds and social image exports.",
+    "features": [
+      "3-question guided prompt flow (Before -> What helped -> Result)",
+      "Auto-assembled draft quote the customer can edit and approve",
+      "Permission checkbox for name, role, avatar, and company logo",
+      "Lightweight zero-iframe CSS grid embed code",
+      "1-click high-res social proof card PNG export",
+      "Tagging by use-case or persona for targeted landing pages"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + HTML-to-Canvas export + Supabase"
+  },
+  {
+    "slug": "saas-soprecorder",
+    "category": "SaaS",
+    "name": "StepSnap",
+    "scope": "Tool / Extension",
+    "platform": "Browser Extension",
+    "audience": "ops managers, customer support leads, and agency founders documenting internal workflows",
+    "challenge": "create step-by-step screenshot guides without spending 30 minutes cropping images and drawing red arrows",
+    "outcome": "clean, redacted Markdown/HTML runbooks generated automatically as you click through a task",
+    "monetization": "Free local Markdown export; $12/month for hosted team wiki links and one-click PII blur.",
+    "features": [
+      "Click-stream recorder with auto-highlighted target element ring",
+      "Auto-generated step titles from button labels and URLs",
+      "One-click blur brush for emails, API keys, and customer names",
+      "Clean Markdown, HTML, and PDF export",
+      "Step reorder, merge, and callout note editor",
+      "100% client-side capture option for sensitive admin tools"
+    ],
+    "suggested_stack": "TypeScript + Manifest V3 Extension + Offscreen Canvas API + React editor"
+  },
+
+  {
+    "slug": "ent-scenescout",
+    "category": "Entertainment",
+    "name": "SceneScout",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "couples and friend groups spending 35 minutes scrolling Netflix before giving up",
+    "challenge": "find a movie or mini-series everyone has streaming access to and matches tonight's runtime and mood",
+    "outcome": "a unanimous 3-minute group pick filtered by exact streaming services and runtime cap",
+    "monetization": "Free app with affiliate watch-now links and optional $3/month shared cinephile lists.",
+    "features": [
+      "Room link where everyone swipes 10 mood-matched picks",
+      "Hard runtime filter ('Under 100 minutes so we sleep on time')",
+      "Household streaming subscription intersection filter",
+      "Spoiler-free vibe tags instead of plot-ruining trailers",
+      "Instant match celebration with direct deep-link to play",
+      "Shared 'Watched Together' rating stub log"
+    ],
+    "suggested_stack": "React + TypeScript + TMDB API + WebSockets / PartyKit"
+  },
+  {
+    "slug": "ent-bookclub",
+    "category": "Entertainment",
+    "name": "ChapterGate",
+    "scope": "Solo SaaS",
+    "platform": "Web and Mobile",
+    "audience": "online and neighborhood book clubs reading mysteries, fantasy, or nonfiction at different speeds",
+    "challenge": "let fast readers react to twists while they're fresh without spoiling people still on Chapter 4",
+    "outcome": "chapter-locked discussion threads that unlock automatically as you update your page bookmark",
+    "monetization": "Free for clubs up to 12 members; $5/month organizer plan for polls, meeting scheduling, and archive.",
+    "features": [
+      "Chapter-gated reaction threads unlocked by your reading progress",
+      "Next-month book nomination and ranked-choice voting",
+      "Reading pace calculator ('14 pages/day to finish before Tuesday')",
+      "Built-in discussion starter prompts per section",
+      "Quote highlight wall with page citations",
+      "Club reading history shelf"
+    ],
+    "suggested_stack": "React + TypeScript + Open Library API + Supabase Realtime"
+  },
+  {
+    "slug": "ent-gigradar",
+    "category": "Entertainment",
+    "name": "SmallStage",
+    "scope": "Solo SaaS",
+    "platform": "Mobile and Web",
+    "audience": "live music fans tired of $250 stadium ticket fees who love sub-$30 indie, jazz, and comedy rooms",
+    "challenge": "discover intimate local shows this weekend without following 60 venue Instagram stories",
+    "outcome": "a clean weekly digest of small-venue gigs in your city with instant 20-second audio previews",
+    "monetization": "Free fan discovery; promoted indie show slots and $29/month venue calendar sync.",
+    "features": [
+      "Under-$35 neighborhood gig filter for tonight and this weekend",
+      "One-tap 20-second artist preview player right in the calendar",
+      "Direct venue box-office link to skip secondary scalper fees",
+      "'Going?' lightweight friend ping link",
+      "Favorite intimate venue follow list",
+      "Weekly Thursday '5 Great Small Shows' digest"
+    ],
+    "suggested_stack": "React + TypeScript + iCal/RSS venue parsers + iTunes/Bandcamp preview embeds"
+  },
+  {
+    "slug": "ent-podclip",
+    "category": "Entertainment",
+    "name": "EarMark",
+    "scope": "Tool / Extension",
+    "platform": "Mobile and Web",
+    "audience": "podcast and audiobook listeners who hear great ideas while walking, driving, or cooking",
+    "challenge": "save the exact 60-second insight with a searchable transcript instead of useless '34:12' screenshots",
+    "outcome": "a searchable personal library of audio highlights synced to Markdown notes",
+    "monetization": "Free RSS player with 15 clips/month; $5/month unlimited transcription highlights + Obsidian/Notion sync.",
+    "features": [
+      "Headphone double-tap 'capture last 60 seconds' bookmark",
+      "Automatic snippet transcription and speaker summary",
+      "Search across all saved podcast moments by topic",
+      "Shareable audiogram card link with timestamp",
+      "Markdown export to Obsidian, Logseq, or Notion",
+      "Standard open podcast RSS import (OPML)"
+    ],
+    "suggested_stack": "React PWA + TypeScript + Podcast Index API + Whisper API / local Whisper"
+  },
+  {
+    "slug": "ent-trivianight",
+    "category": "Entertainment",
+    "name": "PubQuiz Host",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "bar trivia hosts, teachers, and team-offsite organizers running live multi-round quiz nights",
+    "challenge": "run custom picture, audio, and wager rounds on a TV screen while teams submit answers on phones without app installs",
+    "outcome": "zero paper-grading chaos, live TV scoreboards, and fast tie-breakers",
+    "monetization": "Free up to 5 teams; $12 single-event pass or $19/month host pro plan.",
+    "features": [
+      "QR join code for teams—zero app download or signup",
+      "Big-screen projector view + host grading tablet console",
+      "Picture round, audio clip round, and final point-wager modes",
+      "Fuzzy-spelling auto-grader with 1-tap host override",
+      "Dramatic animated leaderboard reveal between rounds",
+      "Reusable JSON/CSV trivia pack import and export"
+    ],
+    "suggested_stack": "React + TypeScript + WebSockets (Socket.io / PartyKit)"
+  },
+  {
+    "slug": "ent-backlogger",
+    "category": "Entertainment",
+    "name": "MediaDiet",
+    "scope": "Weekend MVP",
+    "platform": "Desktop and Mobile",
+    "audience": "people drowning in 200 open tabs of movies, books, albums, and essays friends recommended",
+    "challenge": "remember *who* recommended something and *why* when you finally have a free Sunday evening",
+    "outcome": "a calm 'Up Next' queue limited to 3 active picks per medium, tagged with the friend who sent it",
+    "monetization": "Free offline app; $10 one-time sync upgrade with one-tap 'Tell Alex what I thought!' reply prompt.",
+    "features": [
+      "'Recommended by' tag so you actually thank your friend after finishing",
+      "Rule-of-3 active shelf (1 book, 1 show, 1 game/album) to beat choice paralysis",
+      "Auto-fetched runtime/page-count metadata",
+      "'Pick something for 45 minutes' randomizer from your own stash",
+      "Quick 2-sentence reflection log upon completion",
+      "Import from browser bookmarks or share sheet"
+    ],
+    "suggested_stack": "React + TypeScript + Tauri / PWA + OpenLibrary & TMDB metadata"
+  },
+
+  {
+    "slug": "social-smallcircle",
+    "category": "Social Media",
+    "name": "Small Circle",
+    "scope": "Full Product",
+    "platform": "Mobile and Web",
+    "audience": "extended families, college friend groups, and hobby clubs tired of algorithmic feeds and ads",
+    "challenge": "stay meaningfully caught up with 8–20 close people without performative posting or chaotic group-chat scrollback",
+    "outcome": "a warm Sunday 'letterloop' digest where everyone answers one shared prompt and shares 3 photos",
+    "monetization": "Free first circle; $4/month host plan for unlimited photo archives and printed annual yearbook export.",
+    "features": [
+      "Weekly rotating prompt (each member picks next week's question)",
+      "Simultaneous Sunday issue reveal so everyone reads together",
+      "Email-reply support for grandparents who hate installing apps",
+      "3-photo limit per issue to keep updates intentional",
+      "Searchable archive of family and friendship milestones",
+      "One-click printable PDF annual keepsake issue"
+    ],
+    "suggested_stack": "React + TypeScript + PostgreSQL + Inbound/Outbound Email (Postmark)"
+  },
+  {
+    "slug": "social-toollibrary",
+    "category": "Social Media",
+    "name": "BorrowBlock",
+    "scope": "Weekend MVP",
+    "platform": "Web and Mobile",
+    "audience": "apartment buildings, cul-de-sacs, and church/school communities",
+    "challenge": "borrow a ladder, pressure washer, folding chairs, or stud finder for 2 hours without buying another one",
+    "outcome": "an invite-only trusted lending shelf with simple pickup/return tracking so nothing goes missing",
+    "monetization": "Free for small groups up to 25 neighbors; $9/month HOA/apartment building community plan.",
+    "features": [
+      "Invite-only neighborhood lending catalog (tools, party gear, camping)",
+      "'Does anyone have a...?' urgent request flare",
+      "Borrowed-until date reminder so tools always make it home",
+      "Condition photo + care note ('Return with battery on charger')",
+      "Vouch-based invite tree for real-name trust",
+      "Zero public ads or data resale"
+    ],
+    "suggested_stack": "React + TypeScript + Supabase + Web Push / Email notifications"
+  },
+  {
+    "slug": "social-crosspost",
+    "category": "Social Media",
+    "name": "ThreadWeave",
+    "scope": "Solo SaaS",
+    "platform": "Desktop and Web",
+    "audience": "indie developers, writers, and researchers sharing work across Bluesky, Mastodon, LinkedIn, and X",
+    "challenge": "adapt character limits, image alt-text, link cards, and thread numbering per network without 4 browser tabs",
+    "outcome": "write once in Markdown and preview/adapt natively for each platform's exact quirks",
+    "monetization": "Free composer and splitter; $9/month for direct multi-platform publishing and evergreen queue.",
+    "features": [
+      "Side-by-side live preview (Bluesky 300c, X 280c, Mastodon 500c, LinkedIn)",
+      "Smart sentence-boundary thread splitter",
+      "Accessibility alt-text enforcement reminder before posting",
+      "Put-link-in-second-reply toggle to avoid feed throttling",
+      "Local Markdown draft vault for half-baked ideas",
+      "Best-performing post structure notes"
+    ],
+    "suggested_stack": "React + TypeScript + Tauri / Web + AT Protocol & Mastodon APIs"
+  },
+  {
+    "slug": "social-hobbyclub",
+    "category": "Social Media",
+    "name": "ThirdPlace",
+    "scope": "Solo SaaS",
+    "platform": "Mobile and Web",
+    "audience": "organizers of run clubs, board-game nights, sketch walks, and pickup soccer groups",
+    "challenge": "manage weekly RSVPs, waitlists, rain cancellations, and newcomer welcomes without Meetup's $300+/yr fees",
+    "outcome": "effortless recurring event pages where regulars and first-timers show up reliably",
+    "monetization": "Free for free community events; 2% fee on ticketed/dues events or $8/month pro club tools.",
+    "features": [
+      "Auto-promoting waitlist when an RSVP drops out 2 hours before start",
+      "1-tap SMS/email weather or venue change broadcast",
+      "'First-timer friendly' host buddy badge",
+      "Optional chip-in jar for field rental or coffee",
+      "Add-to-Apple/Google-Calendar recurring feed",
+      "Simple club directory without noisy chat spam"
+    ],
+    "suggested_stack": "React + TypeScript + Hono + Turso/SQLite + iCal feed generator"
+  },
+  {
+    "slug": "social-feeddiet",
+    "category": "Social Media",
+    "name": "IntentionalFeed",
+    "scope": "Tool / Extension",
+    "platform": "Browser Extension",
+    "audience": "creators, marketers, and researchers who *must* use YouTube, Reddit, or LinkedIn for work without getting sucked into reels",
+    "challenge": "post, reply to messages, or search a tutorial without losing 45 minutes to algorithmic home feeds and shorts",
+    "outcome": "surgical access to search, subscriptions, and inbox while hiding algorithmic rabbit holes",
+    "monetization": "Free core blocker; $12 one-time lifetime unlock for custom time budgets and site schedules.",
+    "features": [
+      "Hides Home feed, Shorts, Reels, and 'Trending' sidebars cleanly",
+      "Replaces blank feed with a calm 'What did you open this tab to do?' prompt",
+      "5-minute intentional browse pass with gentle countdown",
+      "Preserves Search, Direct Messages, and Creator Studio",
+      "Weekly hours-reclaimed local counter",
+      "Zero browsing-history collection—pure local DOM rules"
+    ],
+    "suggested_stack": "TypeScript + Manifest V3 DeclarativeNetRequest & Content CSS"
+  },
+  {
+    "slug": "social-coworkroom",
+    "category": "Social Media",
+    "name": "QuietDesk Club",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "solo founders, PhD writers, and remote freelancers who miss the gentle accountability of a library table",
+    "challenge": "beat WFH procrastination without awkward video-on body-doubling calls with strangers",
+    "outcome": "silent 50-minute Pomodoro rooms where everyone posts a 1-line goal at `:00` and checks it off at `:50`",
+    "monetization": "Free public focus rooms; $6/month for private friend/team tables and streak logs.",
+    "features": [
+      "Synchronized top-of-the-hour 50/10 global focus clock",
+      "Camera-free avatar desk presence with 1-line intention card",
+      "End-of-block 'Shipped it!' celebratory chime and check-in",
+      "Optional ambient rain, café, or brown-noise mixer",
+      "Private invite link for co-working with 3 remote friends",
+      "Weekly deep-work session tally"
+    ],
+    "suggested_stack": "React + TypeScript + Web Audio API + Supabase Presence / PartyKit"
+  },
+
+  {
+    "slug": "prod-oneclearthing",
+    "category": "Productivity",
+    "name": "One Clear Thing",
+    "scope": "Full Product",
+    "platform": "Desktop and Mobile",
+    "audience": "makers and knowledge workers whose 80-item task lists paralyze them by 10 AM",
+    "challenge": "pick a realistic plan that actually fits between today's meetings and unexpected interruptions",
+    "outcome": "1 highlight + 2 supporting tasks budgeted against your real remaining hours today",
+    "monetization": "Free local planner; $5/month or $39 one-time desktop app with calendar import and weekly shutdown review.",
+    "features": [
+      "Available deep-work hours calculator (Workday minus meetings & buffer)",
+      "Hard cap of 1 Anchor Task + 2 Secondary Tasks on Today's card",
+      "Floating mini focus bar showing only current task + timer",
+      "Guilt-free carryover triage during 3-minute end-of-day shutdown",
+      "Someday backlog vault hidden during focus hours",
+      "Keyboard-driven quick capture (`Alt+Space`)"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust + React + TypeScript + local SQLite"
+  },
+  {
+    "slug": "prod-meetingcost",
+    "category": "Productivity",
+    "name": "AgendaGate",
+    "scope": "Weekend MVP",
+    "platform": "Web and Browser Extension",
+    "audience": "engineering managers and startup teams drowning in status meetings that should have been async updates",
+    "challenge": "nudge organizers to define a clear decision goal or convert low-value recurring calls into async check-ins",
+    "outcome": "fewer aimless 60-minute calls and crisper 25-minute decision sessions",
+    "monetization": "Free extension; $4/seat/month for team calendar analytics and async standup replacements.",
+    "features": [
+      "No-agenda warning badge inside Google Calendar / Outlook invites",
+      "1-click meeting-type templates (Decision, Brainstorm, 1:1, Cut-to-Async)",
+      "Subtle live meeting time-remaining + decision-owner footer",
+      "Recurring meeting 30-day 'Still needed?' audit prompt",
+      "2-minute pre-read async doc generator",
+      "Team deep-work uninterrupted block finder"
+    ],
+    "suggested_stack": "TypeScript + Manifest V3 Extension + React web companion"
+  },
+  {
+    "slug": "prod-clipstack",
+    "category": "Productivity",
+    "name": "PasteShelf",
+    "scope": "Tool / Extension",
+    "platform": "Desktop",
+    "audience": "developers, support engineers, and analysts copying 5 snippets between docs, terminals, and tickets",
+    "challenge": "stop alt-tabbing back and forth 5 times to copy-paste fields one by one, without saving passwords to history",
+    "outcome": "instant sequential paste queues (`Cmd+Shift+V` pops items in FIFO order) and smart text transforms",
+    "monetization": "Free open-core utility; $15 one-time Pro license for pinned snippet templates and regex transforms.",
+    "features": [
+      "Sequential FIFO 'Copy 5 things, Paste 5 things in order' mode",
+      "Instant strip-formatting, JSON pretty-print, and case transforms",
+      "Auto-ignores password managers and API-key patterns",
+      "Pinned parameterizable templates (`Hi {{name}}, ...`)",
+      "Sub-10ms keyboard search across last 200 local items",
+      "100% offline SQLite storage"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust + global hotkeys + React + TypeScript"
+  },
+  {
+    "slug": "prod-contextsave",
+    "category": "Productivity",
+    "name": "WorkspaceSnapshot",
+    "scope": "Tool / Extension",
+    "platform": "Browser Extension",
+    "audience": "consultants, students, and multi-project developers juggling 4 contexts in 90 open browser tabs",
+    "challenge": "park an entire research session—along with *why* you had those tabs open and your next step—in 2 seconds",
+    "outcome": "zero-tab clean slate when switching tasks, and instant mental-state restoration days later",
+    "monetization": "Free local snapshots; $18 one-time Pro for Markdown export, auto-deduping, and encrypted sync.",
+    "features": [
+      "Save current window tabs + a mandatory 1-sentence 'Where I left off' note",
+      "Restore workspace with scroll positions and pinned tabs intact",
+      "Duplicate tab cleaner across all open windows",
+      "Stale-tab archive for tabs untouched for 7+ days",
+      "Export any research session as a clean Markdown link list",
+      "Keyboard-first command palette (`Alt+K`)"
+    ],
+    "suggested_stack": "TypeScript + Manifest V3 Tabs/Sessions API + React popup"
+  },
+  {
+    "slug": "prod-decisionjournal",
+    "category": "Productivity",
+    "name": "SecondOrder",
+    "scope": "Weekend MVP",
+    "platform": "Web and Desktop",
+    "audience": "founders, product managers, and investors making high-uncertainty career and product bets",
+    "challenge": "avoid hindsight bias by recording what you believed, what could go wrong, and when to review a decision",
+    "outcome": "sharper judgment calibrated by automated 30-, 90-, and 180-day decision check-ins",
+    "monetization": "Free local Markdown journal; $6/month for email review reminders and team decision logs.",
+    "features": [
+      "5-minute structured pre-mortem & confidence-% template",
+      "'What would make me change my mind?' kill-criteria field",
+      "Scheduled 30/90/180-day review capsules",
+      "Calibration chart comparing predicted confidence vs. actual outcomes",
+      "Plain `.md` local folder export so you own your notes forever",
+      "Clean distraction-free serif writing view"
+    ],
+    "suggested_stack": "React + TypeScript + Tauri / PWA + local Markdown files"
+  },
+  {
+    "slug": "prod-filetidy",
+    "category": "Productivity",
+    "name": "DropRule",
+    "scope": "Tool / Extension",
+    "platform": "Desktop",
+    "audience": "anyone whose `Downloads` and `Desktop` folders turn into a 600-file graveyard of `Screenshot (42).png` and `invoice_final.pdf`",
+    "challenge": "keep local folders organized automatically with human-readable rules and 1-click undo",
+    "outcome": "invoices filed by year/month, screenshots archived weekly, and old `.dmg`/`.exe` installers cleaned safely",
+    "monetization": "$16 one-time desktop purchase with free trial.",
+    "features": [
+      "Plain-English folder watch rules (extension, filename pattern, age)",
+      "Dry-run preview showing exactly where every file will move before running",
+      "Full 1-click undo journal for every batch move or rename",
+      "PDF date/vendor smart filename normalizer (`2026-11-Stripe-Invoice.pdf`)",
+      "Stale installer (`.msi`, `.exe`, `.dmg`, `.zip`) space reclaimer",
+      "Runs locally in system tray with near-zero CPU"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust (`notify` file watcher) + React + TypeScript"
+  },
+
+  {
+    "slug": "game-partyfinder",
+    "category": "Gaming",
+    "name": "Party Finder",
+    "scope": "Full Product",
+    "platform": "Web and Mobile",
+    "audience": "adult gamers with jobs and kids who only get 90 minutes on Tuesday and Thursday nights to play co-op games",
+    "challenge": "find chill, non-toxic teammates in your exact time window and skill vibe without chaotic Discord LFG channels",
+    "outcome": "scheduled, friendly co-op squads ready at 8:30 PM sharp instead of solo-queue frustration",
+    "monetization": "Free squad matching; $4/month supporter tier for persistent guild calendars and recurring game nights.",
+    "features": [
+      "Play-vibe tags ('Chill Dad Hours', 'Blind Playthrough', 'Mic Optional', 'Sweaty Ranked')",
+      "Exact 2-hour weekly availability grid in local timezones",
+      "4-player lobby fill alerts with calendar invite",
+      "Private post-session 'Play again' thumbs-up matching",
+      "Zero public K/D shaming—focused on reliability and friendliness",
+      "One-click Discord voice channel link handoff"
+    ],
+    "suggested_stack": "React + TypeScript + IGDB API + Supabase"
+  },
+  {
+    "slug": "game-ttrpgprep",
+    "category": "Gaming",
+    "name": "SessionZero",
+    "scope": "Solo SaaS",
+    "platform": "Web and Desktop",
+    "audience": "Dungeon Masters and tabletop RPG GMs running weekly campaigns on short prep time",
+    "challenge": "remember NPC voices, improvised tavern names, faction grudges, and last week's cliffhanger in one screen",
+    "outcome": "30-minute session prep and zero mid-combat page flipping",
+    "monetization": "Free for 1 campaign; $7/month GM vault or $29 offline desktop edition.",
+    "features": [
+      "1-screen Live GM Cockpit (NPC cards, initiative tracker, quick lore)",
+      "Instant 1-click NPC generator that auto-saves to your world wiki when used",
+      "'Previously on...' 60-second player recap generator from session bullets",
+      "Wiki-style `[[backlinks]]` between locations, items, and factions",
+      "Secret GM notes vs. player-visible handout toggle",
+      "System-agnostic (works for D&D 5e, Pathfinder, Blades, Mothership)"
+    ],
+    "suggested_stack": "React + TypeScript + Tauri / Web + SQLite with FTS5 search"
+  },
+  {
+    "slug": "game-backlogblitz",
+    "category": "Gaming",
+    "name": "BeatNext",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "PC and console gamers sitting on 150 unplayed Steam Sale games",
+    "challenge": "pick a game you can actually finish this weekend instead of re-installing a 120-hour RPG",
+    "outcome": "a realistic 'Weekend Beatable' shortlist sorted by completion hours and mood",
+    "monetization": "Free web tool with optional $3/month multi-platform backlog sync and yearly 'Wrapped' stats.",
+    "features": [
+      "Public Steam ID import in 3 seconds",
+      "'Finishable in under 6 hours' weekend filter",
+      "Steam Deck verified + controller-friendly badges",
+      "Cost-per-hour-played library value breakdown",
+      "1-active-story-game commitment slot to stop game-hopping",
+      "Satisfying 'Rolled Credits!' trophy shelf"
+    ],
+    "suggested_stack": "React + TypeScript + Steam Web API + HLTB/IGDB runtime estimates"
+  },
+  {
+    "slug": "game-boardcompanion",
+    "category": "Gaming",
+    "name": "Tabletop Tally",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "board game groups tired of tiny paper scorepads, rules edge-case arguments, and picking first player",
+    "challenge": "score multi-category point-salad games accurately and teach setup rules fast",
+    "outcome": "faster setup, zero addition mistakes at the end of Wingspan/7 Wonders, and a fun group win-history log",
+    "monetization": "Free PWA with 20 popular score-sheet templates; $8 one-time pack for custom template builder and group stats.",
+    "features": [
+      "Category-by-category visual end-game score calculator",
+      "Multi-finger tap 'Who goes first?' selector",
+      "Per-player chess-style turn timer for slow thinkers",
+      "1-page quick-setup & forgotten-rules cheat cards",
+      "Game-night photo + winner history log",
+      "Works 100% offline in cabins and game cafés"
+    ],
+    "suggested_stack": "React PWA + TypeScript + IndexedDB + Touch Canvas"
+  },
+  {
+    "slug": "game-playtestbox",
+    "category": "Gaming",
+    "name": "PlaytestPulse",
+    "scope": "Solo SaaS",
+    "platform": "Web and Desktop",
+    "audience": "solo indie game developers running Steam Next Fest demos and closed alpha playtests",
+    "challenge": "link a player's bug report or 'I got stuck here' feedback to their exact coordinates, build version, and FPS",
+    "outcome": "reproducible bug cards in 10 seconds without forcing playtesters to alt-tab to a Google Form",
+    "monetization": "Free up to 100 reports; $19/month indie studio tier with GitHub/Linear sync.",
+    "features": [
+      "Drop-in REST webhook for Godot, Unity, Unreal, or Web games (`F8` feedback)",
+      "Attaches screenshot + JSON game state (scene, coordinates, OS, build hash)",
+      "Heatmap clustering of 'Frustrating / Confusing' player pins",
+      "Build-to-build sentiment comparison after balance patches",
+      "1-click GitHub Issue or Linear ticket export",
+      "Lightweight 1-file C#/GDScript/TS SDK"
+    ],
+    "suggested_stack": "React dashboard + TypeScript + Hono API + S3/R2 + SQLite"
+  },
+  {
+    "slug": "game-dailywordcraft",
+    "category": "Gaming",
+    "name": "CrossClue Maker",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "teachers, newsletter writers, wedding planners, and puzzle fans who want to make custom 5x5 mini puzzles",
+    "challenge": "build a solvable, symmetric mini crossword or connections-style puzzle with inside jokes in 5 minutes",
+    "outcome": "an instant shareable browser game link friends can play on their phones with spoiler-free emoji scores",
+    "monetization": "Free personal puzzle maker; $9/month for newsletter creators with custom branding and embed iframes.",
+    "features": [
+      "5x5 mini-crossword and 4x4 word-group puzzle studio",
+      "Auto-fill word helper for tricky intersecting letters",
+      "Mobile-friendly playable link—no login for players",
+      "Spoiler-free emoji timer share card for group chats",
+      "Iframe embed for Substack, Ghost, or wedding websites",
+      "Completion time and hardest-clue analytics"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + word-list trie + URL/DB persistence"
+  },
+
+  {
+    "slug": "travel-layoverlocal",
+    "category": "Travel",
+    "name": "Layover Local",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "travelers stuck with 4-to-9 hour airport or train layovers",
+    "challenge": "know whether you actually have enough safe buffer time to leave the terminal for one great meal or walk",
+    "outcome": "a realistic micro-itinerary with transit duration, bag-storage spots, and a hard 'head back now' alarm",
+    "monetization": "Free layover calculator; affiliate luggage-storage links and $4 offline airport city packs.",
+    "features": [
+      "Gate-to-city-to-security conservative time-buffer math",
+      "Terminal luggage locker & left-baggage map",
+      "Curated 2-hour neighborhood loops right off airport rail lines",
+      "Hard 'Board train back by 3:15 PM' countdown alarm",
+      "'Stay airside instead' honest warning when layover is too tight",
+      "Offline terminal lounge, shower, and quiet-zone guide"
+    ],
+    "suggested_stack": "React PWA + TypeScript + curated airport rail JSON dataset"
+  },
+  {
+    "slug": "travel-grouptrip",
+    "category": "Travel",
+    "name": "CrewCompass",
+    "scope": "Solo SaaS",
+    "platform": "Web and Mobile",
+    "audience": "the one organized friend stuck planning a 6-person bachelor/bachelorette, reunion, or ski trip",
+    "challenge": "collect flight arrival times, budget limits, Airbnb votes, and dietary restrictions without 400 chaotic texts",
+    "outcome": "one shared trip board where everyone drops their flight number, votes on options, and sees the live itinerary",
+    "monetization": "Free up to 4 travelers; $12 one-time per group trip (no recurring subscription annoyance!).",
+    "features": [
+      "Anonymous budget comfort slider before anyone books pricey Airbnbs",
+      "Arrival/departure overlap timeline for airport carpool pairing",
+      "3-option lodging and activity voting cards",
+      "Opt-in daily blocks ('Group dinner' vs. 'Free afternoon')",
+      "Shared offline info card (door code, Wi-Fi, address in local script)",
+      "Built-in trip expense IOUs"
+    ],
+    "suggested_stack": "React + TypeScript + Supabase + PWA offline cache"
+  },
+  {
+    "slug": "travel-packsmart",
+    "category": "Travel",
+    "name": "CarryOnZero",
+    "scope": "Weekend MVP",
+    "platform": "Web and Mobile",
+    "audience": "one-bag travelers, hikers, and airline passengers dodging $65 checked-bag and overweight fees",
+    "challenge": "pack for multi-climate trips inside strict airline carry-on dimensions and 7kg/10kg weight limits",
+    "outcome": "zero forgotten chargers or adapters, lighter bags, and airline-specific size compliance",
+    "monetization": "Free packing generator; $9 lifetime unlock for saved gear closet weights and family trip profiles.",
+    "features": [
+      "Airline carry-on & personal-item dimension/weight checker (100+ airlines)",
+      "Weather + laundry-access smart outfit quantity calculator",
+      "Destination plug-adapter and voltage auto-alert",
+      "Reusable 'Leave-in-toiletry-bag' vs. 'Pack morning-of' split checklist",
+      "Gram/ounce gear closet tracker for ultralight travelers",
+      "Shareable packing template URLs"
+    ],
+    "suggested_stack": "React + TypeScript + Open-Meteo API + IndexedDB"
+  },
+  {
+    "slug": "travel-jetlag",
+    "category": "Travel",
+    "name": "CircadianShift",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "international travelers, conference speakers, and athletes crossing 4+ time zones",
+    "challenge": "know when to seek bright light, drink coffee, wear sunglasses, and sleep—starting 2 days before departure",
+    "outcome": "cut jet lag recovery in half using simple circadian light and caffeine windows",
+    "monetization": "Free single-trip schedule; $8/year for unlimited multi-leg itineraries and calendar/watch sync.",
+    "features": [
+      "Flight-time + chronotype circadian phase-shift schedule",
+      "Hour-by-hour 'Seek sunlight / Avoid bright light / Last caffeine' blocks",
+      "1-click `.ics` export straight into Apple/Google Calendar",
+      "In-flight meal vs. sleep window recommendation",
+      "Zero wearable hardware required",
+      "Offline access in airplane mode"
+    ],
+    "suggested_stack": "React PWA + TypeScript + timezone & solar calculation engine + iCal export"
+  },
+  {
+    "slug": "travel-roadstop",
+    "category": "Travel",
+    "name": "DetourWorth",
+    "scope": "Solo SaaS",
+    "platform": "Mobile and Web",
+    "audience": "families, EV drivers, and road-trippers tired of generic highway fast-food exits",
+    "challenge": "find independent diners, playgrounds, scenic overlooks, or clean bakeries less than 6 minutes off your exact highway route",
+    "outcome": "memorable 25-minute pit stops with playgrounds for kids or chargers for EVs without blowing your ETA",
+    "monetization": "Free route search; $15/year Roadtripper Pro with offline corridor packs and CarPlay/Android Auto links.",
+    "features": [
+      "Strict 'Max 5-minute detour from route' corridor filter",
+      "'Stretch legs in 2 hours' stop window calculator along route",
+      "Kid-park + coffee combo finder for traveling parents",
+      "EV fast-charger within walking distance of real local food",
+      "1-tap handoff to Google Maps, Apple Maps, or Waze",
+      "Save favorite highway gems for annual family drives"
+    ],
+    "suggested_stack": "React + TypeScript + MapLibre GL + OSRM/OpenStreetMap Overpass API"
+  },
+  {
+    "slug": "travel-visacheck",
+    "category": "Travel",
+    "name": "NomadDays",
+    "scope": "Solo SaaS",
+    "platform": "Web and Mobile",
+    "audience": "remote workers, snowbirds, and frequent international flyers tracking Schengen 90/180 and tax-residency day limits",
+    "challenge": "calculate rolling 180-day visa windows accurately so a future trip doesn't accidentally overstay by 2 days",
+    "outcome": "crystal-clear rolling day counts and safe future-trip simulations",
+    "monetization": "Free calculator; $19/year for multi-passport families, tax-residency thresholds, and stamp backup vault.",
+    "features": [
+      "Rolling 90-in-180 Schengen day counter with future-trip simulator",
+      "183-day state/country tax-residency threshold tracker",
+      "Passport 6-month validity & blank-page early warning",
+      "Entry/exit boarding pass and stamp photo log",
+      "'Latest safe departure date' instant readout",
+      "CSV export for accountants or visa applications"
+    ],
+    "suggested_stack": "React + TypeScript + date-fns UTC day-math engine + SQLite/IndexedDB"
+  },
+
+  {
+    "slug": "food-pantryloop",
+    "category": "Food & Beverage",
+    "name": "Pantry Loop",
+    "scope": "Full Product",
+    "platform": "Mobile and Web",
+    "audience": "busy households tired of throwing away $60 of wilted greens and half-used sauces every week",
+    "challenge": "plan 3 fast weeknight dinners built around perishables already sitting in the fridge",
+    "outcome": "lower grocery bills, fewer 5 PM 'what's for dinner?' panics, and minimal food waste",
+    "monetization": "Free pantry & shopping list; $5/month household sync with 'use-first' meal suggestions.",
+    "features": [
+      "'Eat within 3 days' perishable shelf at the top of the app",
+      "20-minute weeknight meal matcher weighted by expiring ingredients",
+      "Aisle-grouped shared live grocery list for couples",
+      "Substitution cheat sheet ('Out of buttermilk? Use lemon + milk')",
+      "Portion scaler that adjusts leftover lunch counts",
+      "Quick voice or receipt batch pantry add"
+    ],
+    "suggested_stack": "React PWA + TypeScript + Supabase Realtime + IndexedDB"
+  },
+  {
+    "slug": "food-recipedistill",
+    "category": "Food & Beverage",
+    "name": "CookClean",
+    "scope": "Tool / Extension",
+    "platform": "Web and Browser Extension",
+    "audience": "home cooks frustrated by 2,500-word life stories and jumping video ads on recipe websites",
+    "challenge": "read ingredients AND steps side-by-side on a counter tablet without scrolling up and down with floury hands",
+    "outcome": "a clean, ad-free kitchen-mode card with inline ingredient amounts right inside each cooking step",
+    "monetization": "Free reader extension; $12/year personal cookbook sync with scaling and unit conversion.",
+    "features": [
+      "1-click JSON-LD recipe extractor stripping all ads and popups",
+      "Inline quantities injected into steps ('Add **2 tbsp (28g)** butter')",
+      "Clickable inline cooking timers right inside step text",
+      "Wake-Lock screen keep-awake mode while cooking",
+      "Instant US cups <-> metric grams & serving multiplier",
+      "Personal searchable recipe box saved offline"
+    ],
+    "suggested_stack": "TypeScript + React + Schema.org Recipe parser + WakeLock API"
+  },
+  {
+    "slug": "food-bakerscale",
+    "category": "Food & Beverage",
+    "name": "CrumbMath",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "sourdough bakers, pizza makers, and home pastry enthusiasts",
+    "challenge": "scale baker's percentages, pan volumes, hydration, and starter levain schedules around real life",
+    "outcome": "warm bread ready at 6 PM Sunday by working backward from bake time and kitchen temperature",
+    "monetization": "Free baker's calculator; $9 one-time unlock for bake logs, crumb photos, and pan-shape converter.",
+    "features": [
+      "Baker's percentage dough scaler by total weight or flour on hand",
+      "Round-pan to square/sheet-pan volume ratio converter",
+      "Backward fermentation timeline from target dinner hour + room temp",
+      "Water temperature (DDT) calculator for consistent bulk rise",
+      "Bake journal comparing hydration, flour brand, and oven spring",
+      "Works 100% offline with one-handed large tap targets"
+    ],
+    "suggested_stack": "React PWA + TypeScript + IndexedDB"
+  },
+  {
+    "slug": "food-menucost",
+    "category": "Food & Beverage",
+    "name": "PlateMargin",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "independent cafés, food trucks, bakeries, and pop-up chefs",
+    "challenge": "know immediately which menu items drop below target food-cost % when butter, eggs, or coffee beans spike in price",
+    "outcome": "update 1 supplier invoice price and automatically recalculate margins across every sub-recipe and menu item",
+    "monetization": "$24/month per kitchen location.",
+    "features": [
+      "Cascading ingredient -> prep sub-recipe -> final menu plate costing",
+      "Supplier price-spike alert flagging plates over 32% food cost",
+      "Yield/trim waste adjustment (e.g., whole onion vs. diced yield)",
+      "Menu engineering quadrant (Stars, Plowhorses, Puzzles, Dogs)",
+      "Prep-sheet batch multiplier for catering orders",
+      "Simple CSV distributor invoice price updater"
+    ],
+    "suggested_stack": "React + TypeScript + PostgreSQL / SQLite + Vite"
+  },
+  {
+    "slug": "food-allergencard",
+    "category": "Food & Beverage",
+    "name": "SafeBite Card",
+    "scope": "Weekend MVP",
+    "platform": "Mobile",
+    "audience": "travelers and diners with celiac disease or severe nut, shellfish, dairy, or sesame allergies",
+    "challenge": "communicate cross-contamination rules clearly to restaurant kitchen staff in foreign languages",
+    "outcome": "chef-verified native-language cards explaining hidden sauces/oils—even offline with zero cell service",
+    "monetization": "Free English + Spanish cards; $7 one-time unlock for 35 languages and custom multi-allergen family profiles.",
+    "features": [
+      "High-contrast full-screen 'Please show to the chef' native script card",
+      "Cuisine-specific hidden-allergen warnings (e.g., wheat in soy sauce, peanut oil)",
+      "Text-to-speech native audio playback for noisy restaurants",
+      "Multi-member profiles for families traveling with allergic kids",
+      "Local emergency number quick-dial per country",
+      "100% offline bundle"
+    ],
+    "suggested_stack": "React PWA + TypeScript + verified translation JSON + Web Speech synthesis"
+  },
+  {
+    "slug": "food-potluck",
+    "category": "Food & Beverage",
+    "name": "TableSpread",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "hosts of Thanksgiving dinners, team potlucks, neighborhood BBQs, and baby showers",
+    "challenge": "prevent 6 people from bringing store-bought chips while nobody brings mains, ice, or gluten-free options",
+    "outcome": "a balanced menu link with dietary badges and zero guest accounts required",
+    "monetization": "Free potluck boards; $5 host upgrade for oven/outlet warm-up scheduling and printable place-card tent labels.",
+    "features": [
+      "Slot-balanced categories (Mains, Sides, Drinks, Desserts, Ice/Cups)",
+      "No-login 2-tap dish claim for guests",
+      "Automatic dietary tags (GF, Vegan, Nut-Free, Dairy-Free) across the spread",
+      "Host oven/stovetop time-slot coordinator ('350°F at 4:30 PM')",
+      "Printable folded dish-label cards listing allergens",
+      "Post-party 'Share your recipe!' 1-click guest collection"
+    ],
+    "suggested_stack": "React + TypeScript + Turso/Supabase + print CSS"
+  },
+
+  {
+    "slug": "realestate-openhouse",
+    "category": "Real Estate",
+    "name": "Open House Notes",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "first-time home buyers touring 6 houses or apartments in a single Saturday",
+    "challenge": "remember which house had the old roof, low water pressure, or street noise once photos blur together Sunday night",
+    "outcome": "side-by-side household scorecards grounded in non-negotiables and true monthly PITI + HOA cost",
+    "monetization": "Free for up to 5 properties; $14 one-time buyer pass for partner sync and red-flag inspection checklists.",
+    "features": [
+      "Guided walkthrough checklist (water pressure, outlets, roof age, cell signal, orientation)",
+      "Partner blind-rating mode so spouses score before biasing each other",
+      "True monthly payment calculator (Mortgage + Tax + HOA + Insurance + Utilities)",
+      "Commute + grocery + noise quick notes pinned per room photo",
+      "'Questions to ask listing agent before offering' auto-list",
+      "Side-by-side top-3 finalist comparison table"
+    ],
+    "suggested_stack": "React PWA + TypeScript + IndexedDB / Supabase sync"
+  },
+  {
+    "slug": "realestate-depositshield",
+    "category": "Real Estate",
+    "name": "MoveInProof",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "renters and college students protecting their $2,000+ security deposit on move-in and move-out day",
+    "challenge": "document pre-existing carpet stains, wall scuffs, and appliance quirks with tamper-evident dated reports",
+    "outcome": "a timestamped room-by-room PDF condition report emailed to the landlord on Day 1 so unfair deductions get dropped",
+    "monetization": "Free 1-room test; $9 per lease move-in/move-out bundle.",
+    "features": [
+      "Room-by-room guided photo walkthrough (walls, floors, blinds, appliances)",
+      "SHA-256 photo hash + UTC timestamp verification certificate",
+      "Clean side-by-side Move-In vs. Move-Out comparison PDF",
+      "State-specific security-deposit return deadline countdown & demand letter",
+      "Lease renewal reminder 75 days before notice window",
+      "ZIP archive export of original full-resolution photos"
+    ],
+    "suggested_stack": "React PWA + TypeScript + Web Crypto SHA-256 + client-side PDF builder"
+  },
+  {
+    "slug": "realestate-smalllandlord",
+    "category": "Real Estate",
+    "name": "DuplexDesk",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "accidental and small DIY landlords managing 1 to 8 rental units",
+    "challenge": "track repairs, appliance serial numbers, Schedule E tax expenses, and lease dates without enterprise PM bloat",
+    "outcome": "organized unit maintenance logs and 1-click year-end Schedule E tax packets",
+    "monetization": "Free for 1 unit; $12/month up to 8 units.",
+    "features": [
+      "Per-unit appliance model/serial/warranty & paint-color bible",
+      "Tenant QR maintenance request link with photo + urgency triage",
+      "IRS Schedule E category expense & receipt tagger",
+      "Lease expiration, smoke-detector check, and HVAC filter reminders",
+      "Trusted local plumber/electrician contact & invoice history",
+      "1-click CPA year-end CSV + receipt bundle"
+    ],
+    "suggested_stack": "React + TypeScript + PostgreSQL + S3/R2 receipt storage"
+  },
+  {
+    "slug": "realestate-renobudget",
+    "category": "Real Estate",
+    "name": "RemodelScope",
+    "scope": "Solo SaaS",
+    "platform": "Web and Desktop",
+    "audience": "homeowners planning a kitchen, bath, or basement remodel and comparing contractor quotes",
+    "challenge": "compare 3 wildly differently formatted contractor bids apples-to-apples and track change orders before going 30% over budget",
+    "outcome": "normalized bid comparisons, allowance tracking, and crystal-clear contingency reserves",
+    "monetization": "Free single-room planner; $24 one-time project pass.",
+    "features": [
+      "Contractor bid normalizer flagging missing scope (permits, demo, haul-away, tile trim)",
+      "Rough-in vs. finish fixture allowance schedule (plumbing, lighting, tile)",
+      "Change-order log showing real-time impact on 15% contingency buffer",
+      "Payment draw schedule tied to inspection milestones—not calendar dates",
+      "Lead-time tracker so missing faucets don't stall the plumber",
+      "Shareable fixture spec sheet for your contractor"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + SQLite/Supabase + PDF export"
+  },
+  {
+    "slug": "realestate-hoatransparent",
+    "category": "Real Estate",
+    "name": "CondoBoard Lite",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "volunteer board members of 4-to-30 unit self-managed condo and townhome associations",
+    "challenge": "share budgets, roof reserve funds, meeting minutes, and vendor quotes without paying $400/month for a management company",
+    "outcome": "transparent owner portals, simple dues tracking, and painless board handoffs when volunteers rotate",
+    "monetization": "$19/month flat per small association.",
+    "features": [
+      "Reserve fund health tracker (roof, siding, boiler, paving lifespans)",
+      "Searchable archive of bylaws, insurance certificates, and minutes",
+      "Async owner vote & maintenance window announcement board",
+      "Shared vendor contract and snow/landscaping schedule",
+      "Lender condo-questionnaire quick fact sheet for selling owners",
+      "Clean board-treasurer transition checklist"
+    ],
+    "suggested_stack": "React + TypeScript + PostgreSQL + magic-link owner auth"
+  },
+  {
+    "slug": "realestate-sunnoise",
+    "category": "Real Estate",
+    "name": "LotCheck",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "home buyers and gardeners evaluating how sunny, noisy, or flood-exposed an address actually is year-round",
+    "challenge": "know before buying if a backyard gets zero winter sun or sits under an afternoon flight path",
+    "outcome": "an instant seasonal sun-path, elevation, and neighborhood context brief for any address",
+    "monetization": "Free sun-angle preview; $7 detailed property report pack.",
+    "features": [
+      "Summer solstice vs. winter solstice window/yard sun-angle diagram",
+      "Golden-hour & natural-light room orientation compass",
+      "Proximity check to rail lines, highways, fire stations, and flight corridors",
+      "Topography slope and low-spot drainage elevation profile",
+      "Walkable coffee, grocery, and park 10-minute isochrone ring",
+      "Printable 1-page touring brief"
+    ],
+    "suggested_stack": "React + TypeScript + SunCalc + MapLibre + Open-Elevation / OSM APIs"
+  },
+
+  {
+    "slug": "trans-parkside",
+    "category": "Transportation",
+    "name": "Parkside",
+    "scope": "Full Product",
+    "platform": "Mobile",
+    "audience": "suburban-to-city hybrid commuters combining driving, park-and-ride lots, and commuter rail",
+    "challenge": "know before leaving the driveway whether your station lot is already full and whether the 7:42 express is delayed",
+    "outcome": "door-to-door hybrid commute plans that dynamically switch stations when lots fill or trains stall",
+    "monetization": "Free commuter view; $4/month Pro for push departure nudges and multi-station lot fill predictions.",
+    "features": [
+      "Station lot fill-time curves by day of week (Tue/Wed hybrid peaks)",
+      "Combined drive-to-lot + platform-walk + next-train countdown",
+      "Backup station recommendation when delays hit your primary line",
+      "'Leave in 9 minutes to catch the 7:42' lockscreen widget",
+      "Monthly hybrid transit pass vs. pay-per-ride break-even math",
+      "Saved morning vs. evening commute profiles"
+    ],
+    "suggested_stack": "React Native / PWA + TypeScript + GTFS-Realtime feeds"
+  },
+  {
+    "slug": "trans-carlog",
+    "category": "Transportation",
+    "name": "Glovebox",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "DIY car, motorcycle, and family fleet owners keeping vehicles running smoothly past 150,000 miles",
+    "challenge": "remember exact oil viscosity, wiper blade sizes, tire rotation mileage, and whether a mechanic upsell was already done last year",
+    "outcome": "instant specs at the auto-parts aisle and higher resale value from a complete service binder",
+    "monetization": "Free for 1 vehicle; $12 one-time unlock for unlimited family vehicles + buyer-ready resale PDF.",
+    "features": [
+      "Quick-glance spec card (oil weight, filter part #, wiper lengths, tire PSI, lug torque)",
+      "Mileage + month interval reminders (oil, brake fluid, coolant, timing belt)",
+      "Shop invoice photo & part-cost log to decline duplicate dealer upsells",
+      "Fuel economy / EV kWh/mi anomaly trend chart",
+      "1-click 'Full Maintenance History PDF' when selling privately",
+      "Offline local storage with JSON export"
+    ],
+    "suggested_stack": "React PWA + TypeScript + IndexedDB + PDF export"
+  },
+  {
+    "slug": "trans-bikesafe",
+    "category": "Transportation",
+    "name": "QuietSpoke",
+    "scope": "Solo SaaS",
+    "platform": "Mobile and Web",
+    "audience": "everyday city cyclists, e-bike parents with cargo seats, and nervous new bike commuters",
+    "challenge": "avoid Google Maps 'bike routes' that dump you onto terrifying 45-mph painted-gutter arterials",
+    "outcome": "low-stress neighborhood greenway routing + secure bike-rack notes at your destination",
+    "monetization": "Free city routing; $18/year supporter plan for offline GPX, hill-avoidance sliders, and rain radar.",
+    "features": [
+      "'Comfort over speed' routing weighting residential streets & protected lanes",
+      "Steep-hill avoidance toggle for non-electric bikes and cargo trailers",
+      "Last-50-meters bike rack photo & theft-safety community notes",
+      "Crosswind and 60-minute rain-window commute checker",
+      "1-tap GPX export to Garmin, Wahoo, or phone mount",
+      "Hazard pin reporting (glass in lane, blocked path, construction)"
+    ],
+    "suggested_stack": "React + TypeScript + MapLibre + Brouter / Valhalla custom bicycle profile"
+  },
+  {
+    "slug": "trans-usedcarcheck",
+    "category": "Transportation",
+    "name": "LotInspector",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "private-party used car buyers inspecting a Craigslist or Facebook Marketplace vehicle in a parking lot",
+    "challenge": "spot flood signs, mismatched paint panels, cold-start rattles, and hidden dealer doc fees without being a mechanic",
+    "outcome": "a guided 15-minute physical inspection checklist and repair-deducted negotiation offer",
+    "monetization": "Free general checklist; $6 per vehicle pack with model-year common failure points and bill-of-sale PDF.",
+    "features": [
+      "Step-by-step cold-engine, tire-date-code, rust, and test-drive checklist",
+      "NHTSA free VIN recall & manufacturer complaint lookup",
+      "Repair-deduction calculator ('Tires from 2019 = -$650 off asking')",
+      "Title-transfer & lien-release verification warning prompts",
+      "Printable private-party Bill of Sale template",
+      "Side-by-side comparison across 3 test-driven cars"
+    ],
+    "suggested_stack": "React PWA + TypeScript + NHTSA vPIC/Recalls public API"
+  },
+  {
+    "slug": "trans-schoolpool",
+    "category": "Transportation",
+    "name": "CarpoolLoop",
+    "scope": "Solo SaaS",
+    "platform": "Mobile and Web",
+    "audience": "neighborhood parents coordinating school drop-offs, soccer practices, and swim meets across 3–5 families",
+    "challenge": "swap driving shifts when a work meeting runs late without confusing who is picking up which kid today",
+    "outcome": "clear daily driver rosters, booster-seat notes, and 1-tap shift swaps",
+    "monetization": "Free for 2 families; $6/month per carpool circle.",
+    "features": [
+      "Weekly AM/PM driver rotation calendar with fair-turn counter",
+      "1-tap 'Can someone swap Thursday PM?' request to the circle",
+      "Per-child car-seat/booster requirement & emergency pickup authorization note",
+      "Ordered driveway pickup sequence link into Google/Apple Maps",
+      "'Kids picked up & en route' 1-tap parent peace-of-mind ping",
+      "School holiday & half-day schedule overrides"
+    ],
+    "suggested_stack": "React PWA + TypeScript + Supabase + Web Push"
+  },
+  {
+    "slug": "trans-milelogger",
+    "category": "Transportation",
+    "name": "RouteDeduction",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "home-health nurses, realtors, photographers, and tradespeople claiming IRS mileage deductions without battery-draining GPS trackers",
+    "challenge": "log client-visit mileage in seconds without letting an invasive background app track every personal errand 24/7",
+    "outcome": "audit-compliant IRS mileage logs using saved client-pair distances and zero background battery drain",
+    "monetization": "Free up to 20 trips/month; $24/year unlimited trips + IRS-ready PDF/CSV log.",
+    "features": [
+      "Zero-GPS-spyware saved route buttons ('Office <-> St. Mary's Clinic: 18.4 mi')",
+      "Round-trip 1-tap multiplier + business purpose preset",
+      "Live annual tax-deduction dollar value counter (IRS standard rate)",
+      "Start-of-year and end-of-year odometer snapshot prompt",
+      "Parking & toll receipt attachment",
+      "Audit-ready IRS CSV and PDF export"
+    ],
+    "suggested_stack": "React PWA + TypeScript + IndexedDB + OSRM distance lookup"
+  },
+
+  {
+    "slug": "env-repairmap",
+    "category": "Environment",
+    "name": "Repair Map",
+    "scope": "Full Product",
+    "platform": "Web and Mobile",
+    "audience": "homeowners and renters who want to fix shoes, zippers, lamps, bikes, and small appliances instead of landfilling them",
+    "challenge": "find remaining local cobblers, tailors, sharpeners, and community Repair Cafés—and know if a fix is worth the cost",
+    "outcome": "longer-lasting goods, thriving neighborhood repair trades, and less e-waste",
+    "monetization": "Free public directory; $15/month optional booking & quote profile for local repair shops.",
+    "features": [
+      "Item-first search ('broken jacket zipper', 'stand mixer gear', 'knife sharpening')",
+      "Repair-vs-replace honest ballpark cost & prep guide",
+      "Upcoming volunteer Repair Café & tool-library calendar",
+      "Photo quote request form for participating local shops",
+      "Spare-part model-number sticker finder guide",
+      "Household 'Saved from landfill' weight & money counter"
+    ],
+    "suggested_stack": "React + TypeScript + MapLibre + PostgreSQL/PostGIS"
+  },
+  {
+    "slug": "env-nativeyard",
+    "category": "Environment",
+    "name": "NativePatch",
+    "scope": "Solo SaaS",
+    "platform": "Web",
+    "audience": "homeowners and renters replacing thirsty turfgrass or balcony pots with drought-tolerant native pollinator plants",
+    "challenge": "pick native perennials for your exact ecoregion, sun hours, and soil moisture that look tidy all four seasons",
+    "outcome": "a 3x6 ft starter bed plan with bloom-month stagger so bees have food from April to October—and HOAs stay happy",
+    "monetization": "Free regional plant finder; $14 printable bed layout + nursery shopping list pack.",
+    "features": [
+      "ZIP/postal ecoregion + sun + deer-resistance plant filter",
+      "Spring-Summer-Fall continuous bloom-calendar visualizer",
+      "'Cues to care' front-yard tidy border design templates for strict HOAs",
+      "3x6 ft, mailbox bed, and patio-container plug-and-play layouts",
+      "Host-plant butterfly & native bee species match badges",
+      "Printable botanical-name shopping list for local native nurseries"
+    ],
+    "suggested_stack": "React + TypeScript + SVG garden grid canvas + EPA ecoregion dataset"
+  },
+  {
+    "slug": "env-homeenergy",
+    "category": "Environment",
+    "name": "WattDetective",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "homeowners and renters shocked by $300 winter heating or summer AC utility bills",
+    "challenge": "prioritize $20 weekend air-sealing and phantom-load fixes by real payback months instead of $25,000 window sales pitches",
+    "outcome": "a ranked DIY home efficiency action plan plus every federal/utility rebate you qualify for",
+    "monetization": "Free 5-minute DIY audit; $12 home upgrade roadmap with utility bill before/after tracker.",
+    "features": [
+      "10-question home envelope & appliance walkthrough quiz",
+      "Ranked ROI list (attic hatch weatherstripping vs. heat-pump water heater)",
+      "Always-on vampire load estimator (old garage fridge, gaming PC, set-top boxes)",
+      "Time-of-use utility rate dishwasher/EV/laundry shift calculator",
+      "Federal & local utility rebate checklist",
+      "Degree-day normalized monthly bill comparison"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + Chart/SVG payback visuals"
+  },
+  {
+    "slug": "env-sortright",
+    "category": "Environment",
+    "name": "BinCheck",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "households confused by municipal recycling rules, resin codes, batteries, and electronics disposal",
+    "challenge": "stop 'wish-cycling' items that contaminate whole recycling trucks, and find real drop-offs for paint, batteries, and textiles",
+    "outcome": "instant 2-second 'Blue Bin / Compost / Drop-off / Trash' answers tailored to local facility rules",
+    "monetization": "Free resident lookup; B2B white-label widget for small municipalities, campuses, and office buildings ($49/month).",
+    "features": [
+      "Instant item search ('black takeout container', 'greasy pizza box', 'lithium battery')",
+      "'Prep first' rule badges ('Rinse jar, leave cap ON' vs. 'Flatten box')",
+      "Hazardous waste, e-waste, and prescription drop-off map",
+      "Printable fridge-magnet visual cheat sheet for roommates/Airbnb guests",
+      "Holiday trash/compost pickup slide calendar",
+      "Embeddable campus & office kitchen kiosk mode"
+    ],
+    "suggested_stack": "React PWA + TypeScript + fuzzy search (MiniSearch) + print CSS"
+  },
+  {
+    "slug": "env-buyusedradar",
+    "category": "Environment",
+    "name": "Secondhand Scout",
+    "scope": "Tool / Extension",
+    "platform": "Web and Desktop",
+    "audience": "parents, woodworkers, cyclists, and furnishers hunting quality secondhand gear across fragmented resale sites",
+    "challenge": "check Craigslist, eBay, Reverb, and local estate auctions for a specific stroller or solid-wood desk without daily manual searches",
+    "outcome": "unified saved-search digests that catch well-priced secondhand gems before flippers do",
+    "monetization": "Free 3 saved alerts; $6/month for 25 saved searches, scam/retail-arbitrage filters, and instant notifications.",
+    "features": [
+      "Unified query builder with negative keywords (`-ikea -particleboard -parts`)",
+      "Fair used-price history band so you know a real deal in 3 seconds",
+      "Distance radius + 'fits in hatchback' dimension check",
+      "Duplicate cross-listed item deduplication",
+      "Polite 'Can pick up today with cash' message templates",
+      "Saved money & embodied-carbon avoided tally"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust RSS/JSON poller + React + TypeScript"
+  },
+  {
+    "slug": "env-compostclub",
+    "category": "Environment",
+    "name": "SoilShare",
+    "scope": "Weekend MVP",
+    "platform": "Mobile and Web",
+    "audience": "apartment dwellers with food scraps and nearby backyard gardeners or community gardens hungry for compost",
+    "challenge": "connect clean kitchen-scrap drop-offs with neighborhood compost bins without smell, pests, or confusion",
+    "outcome": "closed-loop neighborhood soil building within a 5-minute walk",
+    "monetization": "Free neighbor matching; $9/month community-garden bin management tools.",
+    "features": [
+      "Host bin 'Accepting scraps / Full this week' live toggle",
+      "Host-specific accepted/banned list (no meat, no stickers, chop citrus)",
+      "Finished-compost pickup notification for contributors in spring",
+      "Bin temperature & brown-leaf ('Need dry leaves!') request flare",
+      "Private exact-gate-code visibility only for approved neighbors",
+      "Community pounds-diverted milestone counter"
+    ],
+    "suggested_stack": "React + TypeScript + MapLibre + Supabase"
+  },
+
+  {
+    "slug": "ai-modelledger",
+    "category": "AI & Machine Learning",
+    "name": "Model Ledger",
+    "scope": "Solo SaaS",
+    "platform": "Desktop and Web",
+    "audience": "developers and small product teams testing prompts across Claude, GPT, Gemini, and local Ollama models",
+    "challenge": "know objectively whether a prompt tweak or cheaper smaller model broke edge cases—instead of 'vibe-checking' 2 examples",
+    "outcome": "a fast local prompt benchmark table tracking exact output quality, latency, and $/1k-runs",
+    "monetization": "Free open local desktop app; $19/month team cloud dataset & CI regression runner.",
+    "features": [
+      "Markdown/YAML prompt version diffing with `{{variable}}` test cases",
+      "Side-by-side blind output comparison across 2–4 models",
+      "Deterministic assertions (JSON schema valid, regex, max length, banned phrases)",
+      "Exact token cost per 1,000 production calls calculator",
+      "First-class local Ollama & LM Studio endpoint support",
+      "Stores API keys in OS native keyring—zero proxy middleman"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust + SQLite + React + TypeScript"
+  },
+  {
+    "slug": "ai-contextpacker",
+    "category": "AI & Machine Learning",
+    "name": "RepoSlice",
+    "scope": "Tool / Extension",
+    "platform": "Desktop",
+    "audience": "software engineers pasting codebase slices into web LLMs or scoping context for coding agents",
+    "challenge": "pack only the relevant files, type signatures, and git diffs under a strict token budget while stripping secrets",
+    "outcome": "clean XML/Markdown codebase bundles with exact token counts and automatic `.env` / API-key redaction",
+    "monetization": "Free core packer; $19 one-time Pro license for import-graph auto-selection and saved task presets.",
+    "features": [
+      "Interactive file tree with per-folder live token-count bars",
+      "Auto-include imported TypeScript/Rust/Python type definitions",
+      "Full file vs. signatures-only compression toggle for peripheral files",
+      "Automatic secret/API-key scanner before touching clipboard",
+      "'Include current `git diff` + failing test output' 1-click preset",
+      "Sub-50ms Rust directory walker respecting `.gitignore`"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust (`ignore` crate + tokenizer) + React + TypeScript"
+  },
+  {
+    "slug": "ai-promptvault",
+    "category": "AI & Machine Learning",
+    "name": "PromptVariables",
+    "scope": "Tool / Extension",
+    "platform": "Desktop and Browser Extension",
+    "audience": "power users, researchers, and operators reusing structured system prompts across ChatGPT, Claude, Gemini, and IDEs",
+    "challenge": "stop digging through Notion docs and old chat threads to find your best prompt and manually replacing `[INSERT TOPIC]` placeholders",
+    "outcome": "a `/` keyboard launcher that pops up a quick variable form and injects the filled prompt anywhere",
+    "monetization": "Free up to 25 local prompts; $15 one-time unlock or $4/month synced team library.",
+    "features": [
+      "Auto-generates fill-in-the-blank UI from `{{variable:default}}` syntax",
+      "Composable prompt blocks (e.g., `{{@house-style-guide}}` snippet includes)",
+      "Works in any browser AI chat or desktop editor via global hotkey",
+      "Version history with 'Why this version worked better' notes",
+      "Plain local JSON/Markdown storage folder",
+      "1-click export as Claude Skill or Cursor `.mdc` rule"
+    ],
+    "suggested_stack": "TypeScript + Manifest V3 Extension + Tauri companion"
+  },
+  {
+    "slug": "ai-localvoice",
+    "category": "AI & Machine Learning",
+    "name": "WhisperDraft",
+    "scope": "Full Product",
+    "platform": "Desktop",
+    "audience": "developers, doctors, and writers who think faster out loud than typing—especially for specs, PR descriptions, and brain-dumps",
+    "challenge": "turn rambling spoken thoughts into clean Markdown specs or commit messages completely offline without $15/month cloud dictation fees",
+    "outcome": "hold-to-talk local Whisper transcription + optional cleanup templates with 100% on-device privacy",
+    "monetization": "$24 one-time desktop purchase (no subscription).",
+    "features": [
+      "Push-to-talk global shortcut typing directly into the active window",
+      "On-device Whisper model downloader (Tiny/Base/Small quantized)",
+      "Custom technical dictionary for repo names, acronyms, and medical terms",
+      "Mode presets: Raw Dictation, Clean Bullet List, Bug Report, Coding Prompt",
+      "Audio stays in RAM—never uploaded to third-party servers",
+      "Works offline on airplanes and restricted corporate networks"
+    ],
+    "suggested_stack": "Tauri 2.0 + Rust (`whisper-rs` / `candle`) + React + TypeScript"
+  },
+  {
+    "slug": "ai-datasetcurator",
+    "category": "AI & Machine Learning",
+    "name": "GoldSet",
+    "scope": "Weekend MVP",
+    "platform": "Web and Desktop",
+    "audience": "ML engineers and domain experts curating 100–1,000 high-quality JSONL evaluation or fine-tuning examples",
+    "challenge": "review, edit, grade, and tag LLM input/output pairs fast without miserable horizontal scrolling in Excel/CSV",
+    "outcome": "keyboard-driven human review (`J`/`K` navigate, `1-3` score, `E` edit ideal response) producing clean JSONL",
+    "monetization": "Free local JSONL editor; $25/month for multi-reviewer inter-annotator agreement workspaces.",
+    "features": [
+      "Rendered Markdown & syntax-highlighted code side-by-side diff view",
+      "100% keyboard-driven review queue (`Approve`, `Rewrite`, `Flag`, `Skip`)",
+      "Failure-mode taxonomy tags (Hallucination, Tone, Missing Edge Case, Refusal)",
+      "Duplicate/near-duplicate prompt detector",
+      "Direct import/export for OpenAI, Anthropic, and HuggingFace JSONL formats",
+      "Zero-backend local file mode via File System Access API"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + File System Access API"
+  },
+  {
+    "slug": "ai-costguard",
+    "category": "AI & Machine Learning",
+    "name": "TokenMeter",
+    "scope": "Weekend MVP",
+    "platform": "Web",
+    "audience": "indie founders pricing a new AI-powered SaaS feature before launching to users",
+    "challenge": "avoid getting bankrupted by power users on a $19/month flat plan when multi-turn context windows balloon token costs",
+    "outcome": "interactive unit-economics modeling across model tiers, prompt caching, and per-user rate caps",
+    "monetization": "Free interactive calculator with $9 saved-scenario report & investor-ready margin export.",
+    "features": [
+      "Up-to-date pricing table across Claude, OpenAI, Gemini, DeepSeek, and Groq",
+      "Multi-turn conversation context growth & prompt-cache hit-rate simulator",
+      "95th-percentile 'heavy user' gross margin stress test",
+      "Model-routing savings simulator (Haiku/Flash for triage -> Sonnet/Pro for synthesis)",
+      "Recommended monthly credit cap & fair-use threshold calculator",
+      "Shareable URL scenario links"
+    ],
+    "suggested_stack": "React + TypeScript + Vite + URL state serialization"
+  }
+]

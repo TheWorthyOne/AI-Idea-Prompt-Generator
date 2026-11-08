@@ -1,16 +1,37 @@
 import { useState } from 'react';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
-import { Check, Copy, Lightbulb, Target, Users } from 'lucide-react';
+import {
+  Check,
+  Copy,
+  Lightbulb,
+  PenLine,
+  Star,
+  Target,
+  Terminal,
+  Trash2,
+  Users,
+} from 'lucide-react';
 import { isTauriRuntime } from '../hooks/useStore';
 import { Idea } from '../types';
-import { formatIdeaForClipboard } from '../utils/formatIdea';
+import { formatIdeaForClipboard, getIdeaDisplayName } from '../utils/formatIdea';
 
 interface IdeaCardProps {
   idea: Idea;
+  onToggleStar: (id: string) => void;
+  onDelete: (id: string) => void;
+  onUpdateNotes: (id: string, notes: string) => void;
+  onOpenPromptModal: (idea: Idea) => void;
 }
 
-export function IdeaCard({ idea }: IdeaCardProps) {
+export function IdeaCard({
+  idea,
+  onToggleStar,
+  onDelete,
+  onUpdateNotes,
+  onOpenPromptModal,
+}: IdeaCardProps) {
   const [copied, setCopied] = useState(false);
+  const [notesOpen, setNotesOpen] = useState(() => Boolean(idea.notes && idea.notes.trim()));
 
   const handleCopy = async () => {
     const formatted = formatIdeaForClipboard(idea);
@@ -27,29 +48,71 @@ export function IdeaCard({ idea }: IdeaCardProps) {
     }
   };
 
+  const title = getIdeaDisplayName(idea);
+
   return (
-    <article className="idea-card">
+    <article className={`idea-card${idea.starred ? ' is-starred' : ''}`}>
       <div className="idea-card-topline">
-        <span className="idea-category">{idea.category}</span>
-        <button
-          type="button"
-          onClick={handleCopy}
-          className={`copy-button${copied ? ' is-copied' : ''}`}
-          aria-label={copied ? 'Copied idea to clipboard' : 'Copy idea to clipboard'}
-          title={copied ? 'Copied' : 'Copy idea'}
-        >
-          {copied ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
-          <span>{copied ? 'Copied' : 'Copy'}</span>
-        </button>
+        <div className="idea-badges">
+          <span className="idea-category">{idea.category}</span>
+          {idea.scope && <span className="idea-scope-badge">{idea.scope}</span>}
+          {idea.source === 'ai' && <span className="idea-ai-badge">Claude</span>}
+        </div>
+
+        <div className="idea-card-actions">
+          <button
+            type="button"
+            onClick={() => onToggleStar(idea.id)}
+            className={`icon-action-button star-button${idea.starred ? ' is-active' : ''}`}
+            aria-label={idea.starred ? `Unstar ${title}` : `Star ${title}`}
+            title={idea.starred ? 'Starred (protected from clear)' : 'Star idea'}
+          >
+            <Star aria-hidden="true" />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onOpenPromptModal(idea)}
+            className="prompt-trigger-button"
+            title="Open Build Prompt Studio"
+          >
+            <Terminal aria-hidden="true" />
+            <span>Build Prompt</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleCopy}
+            className={`copy-button${copied ? ' is-copied' : ''}`}
+            aria-label={copied ? 'Copied idea brief' : 'Copy idea brief'}
+            title={copied ? 'Copied' : 'Copy Markdown brief'}
+          >
+            {copied ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
+            <span>{copied ? 'Copied' : 'Copy'}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onDelete(idea.id)}
+            className="icon-action-button delete-card-button"
+            aria-label={`Remove ${title}`}
+            title="Remove from notebook"
+          >
+            <Trash2 aria-hidden="true" />
+          </button>
+        </div>
       </div>
 
-      <p className="idea-date">
-        {new Date(idea.timestamp).toLocaleDateString(undefined, {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        })}
-      </p>
+      <div className="idea-title-row">
+        <h3 className="idea-title">{title}</h3>
+        <span className="idea-date">
+          {new Date(idea.timestamp).toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </span>
+      </div>
 
       <div className="idea-concept">
         <div className="idea-section-label">
@@ -57,7 +120,14 @@ export function IdeaCard({ idea }: IdeaCardProps) {
           <span>The concept</span>
         </div>
         <p>{idea.concept}</p>
-        <span className="platform-tag">{idea.platform}</span>
+        <div className="idea-meta-tags">
+          <span className="platform-tag">{idea.platform}</span>
+          {idea.suggested_stack && (
+            <span className="stack-tag" title="Recommended v1 stack">
+              {idea.suggested_stack}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="idea-details">
@@ -75,7 +145,9 @@ export function IdeaCard({ idea }: IdeaCardProps) {
             <span>First features</span>
           </div>
           <ul>
-            {idea.key_features.map((feature, index) => <li key={`${feature}-${index}`}>{feature}</li>)}
+            {idea.key_features.map((feature, index) => (
+              <li key={`${feature}-${index}`}>{feature}</li>
+            ))}
           </ul>
         </div>
       </div>
@@ -86,6 +158,33 @@ export function IdeaCard({ idea }: IdeaCardProps) {
           <p>{idea.monetization}</p>
         </div>
         <blockquote>{idea.value_proposition}</blockquote>
+      </div>
+
+      <div className="idea-notes-block">
+        {!notesOpen ? (
+          <button
+            type="button"
+            onClick={() => setNotesOpen(true)}
+            className="add-note-toggle"
+          >
+            <PenLine aria-hidden="true" />
+            <span>Add personal twist or note</span>
+          </button>
+        ) : (
+          <div className="idea-notes-editor">
+            <label className="idea-notes-label" htmlFor={`note-${idea.id}`}>
+              <PenLine aria-hidden="true" />
+              <span>Your notes (auto-included in Build Prompt)</span>
+            </label>
+            <textarea
+              id={`note-${idea.id}`}
+              rows={2}
+              value={idea.notes ?? ''}
+              onChange={(event) => onUpdateNotes(idea.id, event.target.value)}
+              placeholder="Jot down your angle, domain name, or MVP cut..."
+            />
+          </div>
+        )}
       </div>
     </article>
   );
